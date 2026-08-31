@@ -112,7 +112,7 @@ export class TabViewer {
     if (catId === 'all') {
       this.filteredPresets = TAB_PRESETS;
     } else {
-      this.filteredPresets = TAB_PRESETS.filter(t => t.stringCategory === catId);
+      this.filteredPresets = TAB_PRESETS.filter(t => t.tabCategory === catId || t.stringCategory === catId);
     }
 
     // Update preset dropdown options
