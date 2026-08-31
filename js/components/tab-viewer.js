@@ -1,14 +1,16 @@
 /**
  * Interactive Tablature Viewer & Riff Practice Trainer
- * Renders 6-string guitar tabs with scrolling playhead and synchronized Web Audio playback
+ * Features: Single-String (Super Beginner), 2-String & Power Riffs, Multi-String Chords, and Speed Trainer
  */
 
-import { TAB_PRESETS } from '../data/tabs.js';
+import { TAB_PRESETS, TAB_CATEGORIES } from '../data/tabs.js';
 import { guitarSynth } from '../audio/synth.js';
 
 export class TabViewer {
   constructor(containerEl) {
     this.container = containerEl;
+    this.currentCategory = 'all';
+    this.filteredPresets = TAB_PRESETS;
     this.currentPreset = TAB_PRESETS[0];
     this.isPlaying = false;
     this.currentColIndex = 0;
@@ -24,14 +26,26 @@ export class TabViewer {
   initUI() {
     this.container.innerHTML = `
       <div class="tab-player-wrapper">
+        <!-- Category Filter Tabs for Super Beginners -->
+        <div class="tab-category-bar">
+          <span class="category-bar-label">Riff Level:</span>
+          <div class="category-chips-wrap" id="tab-category-chips">
+            ${TAB_CATEGORIES.map(cat => `
+              <button class="filter-chip ${cat.id === this.currentCategory ? 'active' : ''}" data-tab-cat="${cat.id}">
+                ${cat.name}
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
         <!-- Header & Preset Selector -->
         <div class="tab-header">
           <div class="tab-selector-group">
-            <label for="tab-preset-select" class="form-label">Select Riff / Tab:</label>
+            <label for="tab-preset-select" class="form-label">Select Riff / Song:</label>
             <select id="tab-preset-select" class="form-select">
-              ${TAB_PRESETS.map(t => `
+              ${this.filteredPresets.map(t => `
                 <option value="${t.id}" ${t.id === this.currentPreset.id ? 'selected' : ''}>
-                  ${t.title} - ${t.artist} (${t.difficulty})
+                  ${t.title} - ${t.artist}
                 </option>
               `).join('')}
             </select>
@@ -46,7 +60,7 @@ export class TabViewer {
             <div class="speed-control-group">
               <span class="control-label">Speed:</span>
               <div class="btn-group">
-                <button class="btn btn-sm btn-speed" data-speed="0.5">0.5x</button>
+                <button class="btn btn-sm btn-speed" data-speed="0.5">0.5x (Practice)</button>
                 <button class="btn btn-sm btn-speed" data-speed="0.75">0.75x</button>
                 <button class="btn btn-sm btn-speed active" data-speed="1.0">1.0x</button>
                 <button class="btn btn-sm btn-speed" data-speed="1.25">1.25x</button>
@@ -63,6 +77,7 @@ export class TabViewer {
             <h3 id="tab-title">${this.currentPreset.title}</h3>
             <span class="tab-artist" id="tab-artist">by ${this.currentPreset.artist}</span>
             <span class="badge badge-difficulty" id="tab-diff">${this.currentPreset.difficulty}</span>
+            ${this.currentPreset.stringTarget ? `<span class="badge badge-string-target" id="tab-string-target">🎯 ${this.currentPreset.stringTarget}</span>` : ''}
           </div>
           <p class="tab-desc" id="tab-desc">${this.currentPreset.description}</p>
           <div class="tab-tip-badge" id="tab-tip"><strong>💡 How to play:</strong> ${this.currentPreset.tips}</div>
@@ -80,8 +95,8 @@ export class TabViewer {
           <details class="details-card">
             <summary class="details-summary">✍️ Create / Paste Custom Tab Text</summary>
             <div class="custom-tab-input-wrap">
-              <p>Enter a simple sequence of notes (e.g. <code>str:fret:duration</code> like <code>0:0:1, 0:3:1, 0:5:2</code>):</p>
-              <textarea id="custom-tab-text" class="form-control" rows="3" placeholder="e.g. 1:7:1.5, 1:7:0.5, 1:10:1, 1:7:1, 1:5:1, 1:3:2, 1:2:2"></textarea>
+              <p>Enter a simple sequence of notes (format <code>string:fret:duration</code> e.g. <code>0:0:1, 0:3:1, 0:5:2</code> where string 0 = Low E, 5 = High E):</p>
+              <textarea id="custom-tab-text" class="form-control" rows="3" placeholder="e.g. 0:0:1, 0:3:1, 0:5:1.5, 0:0:1, 0:3:1, 0:6:0.5, 0:5:1.5"></textarea>
               <button id="btn-load-custom-tab" class="btn btn-sm btn-accent mt-2">Load Custom Tab</button>
             </div>
           </details>
@@ -92,14 +107,60 @@ export class TabViewer {
     this.renderTabSheet();
   }
 
+  updateCategory(catId) {
+    this.currentCategory = catId;
+    if (catId === 'all') {
+      this.filteredPresets = TAB_PRESETS;
+    } else {
+      this.filteredPresets = TAB_PRESETS.filter(t => t.stringCategory === catId);
+    }
+
+    // Update preset dropdown options
+    const select = this.container.querySelector('#tab-preset-select');
+    select.innerHTML = this.filteredPresets.map(t => `
+      <option value="${t.id}">
+        ${t.title} - ${t.artist}
+      </option>
+    `).join('');
+
+    if (this.filteredPresets.length > 0) {
+      this.loadPreset(this.filteredPresets[0]);
+    }
+  }
+
+  loadPreset(preset) {
+    this.stop();
+    this.currentPreset = preset;
+    this.tabColumns = preset.tabColumns;
+    this.currentColIndex = 0;
+
+    this.container.querySelector('#tab-title').textContent = preset.title;
+    this.container.querySelector('#tab-artist').textContent = `by ${preset.artist}`;
+    this.container.querySelector('#tab-diff').textContent = preset.difficulty;
+    this.container.querySelector('#tab-desc').textContent = preset.description;
+    this.container.querySelector('#tab-tip').innerHTML = `<strong>💡 How to play:</strong> ${preset.tips}`;
+
+    const targetEl = this.container.querySelector('#tab-string-target');
+    if (preset.stringTarget) {
+      if (targetEl) {
+        targetEl.textContent = `🎯 ${preset.stringTarget}`;
+        targetEl.style.display = 'inline-block';
+      }
+    } else if (targetEl) {
+      targetEl.style.display = 'none';
+    }
+
+    this.renderTabSheet();
+  }
+
   renderTabSheet() {
     const sheet = this.container.querySelector('#tab-sheet');
     sheet.innerHTML = '';
 
     // Standard TAB String Names (from high string to low string):
-    // Standard notation: line 0 = High E (str 5), line 1 = B (str 4), line 2 = G (str 3), line 3 = D (str 2), line 4 = A (str 1), line 5 = Low E (str 0)
+    // line 0 = High E (str 5), line 1 = B (str 4), line 2 = G (str 3), line 3 = D (str 2), line 4 = A (str 1), line 5 = Low E (str 0)
     const stringLabels = ['e', 'B', 'G', 'D', 'A', 'E'];
-    const stringIndices = [5, 4, 3, 2, 1, 0]; // mapping to 0-5 guitarSynth string indices
+    const stringIndices = [5, 4, 3, 2, 1, 0];
 
     // Left String Header Column
     const headerCol = document.createElement('div');
@@ -121,12 +182,10 @@ export class TabViewer {
       colEl.className = `tab-column ${cIdx === this.currentColIndex ? 'active-col' : ''}`;
       colEl.dataset.colIndex = cIdx;
 
-      // Render 6 lines for this column
       stringIndices.forEach((strIdx) => {
         const slotEl = document.createElement('div');
         slotEl.className = 'tab-note-slot';
         
-        // Find if this string has a note
         const noteMatch = col.notes.find(n => n.str === strIdx);
         if (noteMatch) {
           slotEl.innerHTML = `<span class="fret-badge">${noteMatch.fret}</span>`;
@@ -138,7 +197,6 @@ export class TabViewer {
         colEl.appendChild(slotEl);
       });
 
-      // Click column to play immediately
       colEl.addEventListener('click', () => {
         this.currentColIndex = cIdx;
         this.updateColUI();
@@ -160,22 +218,27 @@ export class TabViewer {
   }
 
   setupListeners() {
-    const presetSelect = this.container.querySelector('#tab-preset-select');
-    presetSelect.addEventListener('change', (e) => {
-      this.stop();
-      this.currentPreset = TAB_PRESETS.find(p => p.id === e.target.value) || TAB_PRESETS[0];
-      this.tabColumns = this.currentPreset.tabColumns;
-      this.currentColIndex = 0;
-
-      this.container.querySelector('#tab-title').textContent = this.currentPreset.title;
-      this.container.querySelector('#tab-artist').textContent = `by ${this.currentPreset.artist}`;
-      this.container.querySelector('#tab-diff').textContent = this.currentPreset.difficulty;
-      this.container.querySelector('#tab-desc').textContent = this.currentPreset.description;
-      this.container.querySelector('#tab-tip').innerHTML = `<strong>💡 How to play:</strong> ${this.currentPreset.tips}`;
-
-      this.renderTabSheet();
+    // Category chips click
+    const categoryWrap = this.container.querySelector('#tab-category-chips');
+    categoryWrap.addEventListener('click', (e) => {
+      const chip = e.target.closest('.filter-chip');
+      if (chip) {
+        categoryWrap.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        this.updateCategory(chip.dataset.tabCat);
+      }
     });
 
+    // Preset dropdown change
+    const presetSelect = this.container.querySelector('#tab-preset-select');
+    presetSelect.addEventListener('change', (e) => {
+      const selected = TAB_PRESETS.find(p => p.id === e.target.value);
+      if (selected) {
+        this.loadPreset(selected);
+      }
+    });
+
+    // Transport buttons
     const playBtn = this.container.querySelector('#btn-tab-play');
     playBtn.addEventListener('click', () => {
       if (this.isPlaying) {
@@ -227,7 +290,7 @@ export class TabViewer {
           this.renderTabSheet();
         }
       } catch (err) {
-        alert('Invalid tab format. Use format str:fret:dur (e.g. 1:7:1, 1:5:1)');
+        alert('Invalid tab format. Use format str:fret:dur (e.g. 0:0:1, 0:3:1)');
       }
     });
   }
@@ -286,7 +349,6 @@ export class TabViewer {
     cols.forEach((colEl, idx) => {
       if (idx === this.currentColIndex) {
         colEl.classList.add('active-col');
-        // Auto scroll into view
         colEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       } else {
         colEl.classList.remove('active-col');

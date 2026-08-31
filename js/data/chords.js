@@ -1,19 +1,104 @@
 /**
  * The Guitar Chord Database
- * Features: The Electric Dozen, Essential 8 Open Chords, Power Chords, 7ths, and Sus Chords
+ * Features: Super Beginner 1-Finger Mini Chords, The Electric Dozen, Power Chords, 7ths, and Sus Chords
  */
 
 export const CHORD_CATEGORIES = [
   { id: 'all', name: 'All Chords' },
+  { id: 'super_beginner', name: '🟢 1 & 2-Finger Mini Chords (Super Beginner)' },
   { id: 'electric_dozen', name: '⚡ The Electric Dozen' },
-  { id: 'essential_8', name: '🎸 Essential 8 Open Chords' },
   { id: 'power_chords', name: '🔥 Rock Power Chords' },
+  { id: 'essential_8', name: '🎸 Essential 8 Open Chords' },
   { id: 'sevenths', name: '🎷 Blues & 7th Chords' },
   { id: 'color', name: '✨ Sus & Color Chords' }
 ];
 
 export const CHORDS = [
-  // --- ESSENTIAL 8 OPEN MAJORS & MINORS ---
+  // =========================================================================
+  // 🟢 SUPER BEGINNER: 1-FINGER & 2-FINGER MINI CHORDS (Day 1 Success!)
+  // =========================================================================
+  {
+    id: 'G_easy1',
+    name: 'Easy 1-Finger G Major',
+    shortName: 'Easy G',
+    category: ['super_beginner'],
+    difficulty: 'Super Beginner (1 Finger)',
+    frets: [-1, -1, -1, 0, 0, 3],
+    fingers: [-1, -1, -1, 0, 0, 3],
+    rootString: 5, // High E string
+    notesSpelled: ['X', 'X', 'X', 'G', 'B', 'G'],
+    baseFret: 1,
+    tip: 'Press just 1 finger on the 3rd fret of the high 1st string! Strum ONLY the thinnest 3 strings (G, B, E).'
+  },
+  {
+    id: 'C_easy1',
+    name: 'Easy 1-Finger C (Cmaj7 / Mini C)',
+    shortName: 'Easy C',
+    category: ['super_beginner'],
+    difficulty: 'Super Beginner (1 Finger)',
+    frets: [-1, -1, -1, 0, 1, 0],
+    fingers: [-1, -1, -1, 0, 1, 0],
+    rootString: 4, // B string (1st fret = C)
+    notesSpelled: ['X', 'X', 'X', 'G', 'C', 'E'],
+    baseFret: 1,
+    tip: 'Press index finger on the 1st fret of the 2nd (B) string. Strum only the thinnest 3 strings. Beautiful and effortless!'
+  },
+  {
+    id: 'Em_easy1',
+    name: 'Easy 1-Finger E Minor',
+    shortName: 'Easy Em',
+    category: ['super_beginner'],
+    difficulty: 'Super Beginner (1 Finger)',
+    frets: [-1, 2, -1, -1, -1, -1],
+    fingers: [-1, 1, -1, -1, -1, -1],
+    rootString: 0,
+    notesSpelled: ['X', 'B', 'X', 'X', 'X', 'X'],
+    baseFret: 1,
+    tip: 'Just 1 finger on the 2nd fret of the 5th (A) string, or play the top 3 open strings with 0 fingers!'
+  },
+  {
+    id: 'E7_easy1',
+    name: 'Easy 1-Finger E7 (Blues Strum)',
+    shortName: 'Easy E7',
+    category: ['super_beginner', 'sevenths'],
+    difficulty: 'Super Beginner (1 Finger)',
+    frets: [-1, -1, -1, 1, 0, 0],
+    fingers: [-1, -1, -1, 1, 0, 0],
+    rootString: 3,
+    notesSpelled: ['X', 'X', 'X', 'G#', 'B', 'E'],
+    baseFret: 1,
+    tip: 'Press index finger on the 1st fret of the 3rd (G) string. Strum top 3 strings for an instant blues vibe.'
+  },
+  {
+    id: 'A7_easy1',
+    name: 'Easy 1-Finger A7',
+    shortName: 'Easy A7',
+    category: ['super_beginner', 'sevenths'],
+    difficulty: 'Super Beginner (1 Finger)',
+    frets: [-1, -1, -1, 0, 2, 0],
+    fingers: [-1, -1, -1, 0, 2, 0],
+    rootString: 4,
+    notesSpelled: ['X', 'X', 'X', 'G', 'C#', 'E'],
+    baseFret: 1,
+    tip: 'Press middle finger on the 2nd fret of the 2nd (B) string. Strum top 3 strings!'
+  },
+  {
+    id: 'Dsus2_easy2',
+    name: 'Easy 2-Finger D (Dsus2)',
+    shortName: 'Easy Dsus2',
+    category: ['super_beginner', 'color'],
+    difficulty: 'Super Beginner (2 Fingers)',
+    frets: [-1, -1, 0, 2, 3, 0],
+    fingers: [-1, -1, 0, 1, 2, 0],
+    rootString: 2,
+    notesSpelled: ['X', 'X', 'D', 'A', 'D', 'E'],
+    baseFret: 1,
+    tip: 'Easier than standard D! Only 2 fingers on frets 2 and 3, leaving the high E string open.'
+  },
+
+  // =========================================================================
+  // ⚡ ESSENTIAL 8 OPEN MAJORS & MINORS
+  // =========================================================================
   {
     id: 'E_maj',
     name: 'E Major',
@@ -31,14 +116,14 @@ export const CHORDS = [
     id: 'Em_min',
     name: 'E Minor',
     shortName: 'Em',
-    category: ['electric_dozen', 'essential_8'],
-    difficulty: 'Beginner',
+    category: ['super_beginner', 'electric_dozen', 'essential_8'],
+    difficulty: 'Beginner (2 Fingers)',
     frets: [0, 2, 2, 0, 0, 0],
     fingers: [0, 2, 3, 0, 0, 0],
     rootString: 0,
     notesSpelled: ['E', 'B', 'E', 'G', 'B', 'E'],
     baseFret: 1,
-    tip: 'Often called the easiest chord on guitar. Only 2 fingers needed!'
+    tip: 'Often called the easiest full chord on guitar. Only 2 fingers needed on the 2nd fret!'
   },
   {
     id: 'A_maj',
@@ -119,13 +204,15 @@ export const CHORDS = [
     tip: 'Strum all 6 strings boldly. You can also play the rock G with ring finger on 2nd string 3rd fret!'
   },
 
-  // --- THE 4 ESSENTIAL 7TH CHORDS (Completing the Electric Dozen) ---
+  // =========================================================================
+  // 🎷 4 ESSENTIAL DOMINANT 7THS
+  // =========================================================================
   {
     id: 'E7_dom',
     name: 'E Dominant 7th',
     shortName: 'E7',
     category: ['electric_dozen', 'sevenths'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [0, 2, 0, 1, 0, 0],
     fingers: [0, 2, 0, 1, 0, 0],
     rootString: 0,
@@ -137,8 +224,8 @@ export const CHORDS = [
     id: 'A7_dom',
     name: 'A Dominant 7th',
     shortName: 'A7',
-    category: ['electric_dozen', 'sevenths'],
-    difficulty: 'Beginner',
+    category: ['super_beginner', 'electric_dozen', 'sevenths'],
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, 0, 2, 0, 2, 0],
     fingers: [-1, 0, 2, 0, 3, 0],
     rootString: 1,
@@ -173,13 +260,15 @@ export const CHORDS = [
     tip: 'The magic chord for blues in E! Uses all 4 fingers—take your time positioning each one.'
   },
 
-  // --- ROCK POWER CHORDS (Essential for Electric Guitar) ---
+  // =========================================================================
+  // 🔥 ROCK POWER CHORDS (Essential 2-Finger Shapes)
+  // =========================================================================
   {
     id: 'E5_power',
     name: 'E5 Power Chord',
     shortName: 'E5',
-    category: ['electric_dozen', 'power_chords'],
-    difficulty: 'Beginner',
+    category: ['super_beginner', 'electric_dozen', 'power_chords'],
+    difficulty: 'Beginner (2 Fingers)',
     frets: [0, 2, 2, -1, -1, -1],
     fingers: [0, 1, 2, -1, -1, -1],
     rootString: 0,
@@ -191,8 +280,8 @@ export const CHORDS = [
     id: 'A5_power',
     name: 'A5 Power Chord',
     shortName: 'A5',
-    category: ['electric_dozen', 'power_chords'],
-    difficulty: 'Beginner',
+    category: ['super_beginner', 'electric_dozen', 'power_chords'],
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, 0, 2, 2, -1, -1],
     fingers: [-1, 0, 1, 2, -1, -1],
     rootString: 1,
@@ -204,8 +293,8 @@ export const CHORDS = [
     id: 'D5_power',
     name: 'D5 Power Chord',
     shortName: 'D5',
-    category: ['power_chords'],
-    difficulty: 'Beginner',
+    category: ['super_beginner', 'power_chords'],
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, -1, 0, 2, 3, -1],
     fingers: [-1, -1, 0, 1, 2, -1],
     rootString: 2,
@@ -218,7 +307,7 @@ export const CHORDS = [
     name: 'G5 Power Chord (Movable)',
     shortName: 'G5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [3, 5, 5, -1, -1, -1],
     fingers: [1, 3, 4, -1, -1, -1],
     rootString: 0,
@@ -231,7 +320,7 @@ export const CHORDS = [
     name: 'C5 Power Chord (Movable)',
     shortName: 'C5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, 3, 5, 5, -1, -1],
     fingers: [-1, 1, 3, 4, -1, -1],
     rootString: 1,
@@ -244,7 +333,7 @@ export const CHORDS = [
     name: 'F5 Power Chord',
     shortName: 'F5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [1, 3, 3, -1, -1, -1],
     fingers: [1, 3, 4, -1, -1, -1],
     rootString: 0,
@@ -257,7 +346,7 @@ export const CHORDS = [
     name: 'F#5 Power Chord (Movable)',
     shortName: 'F#5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [2, 4, 4, -1, -1, -1],
     fingers: [1, 3, 4, -1, -1, -1],
     rootString: 0,
@@ -270,7 +359,7 @@ export const CHORDS = [
     name: 'Ab5 / G#5 Power Chord',
     shortName: 'Ab5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [4, 6, 6, -1, -1, -1],
     fingers: [1, 3, 4, -1, -1, -1],
     rootString: 0,
@@ -283,7 +372,7 @@ export const CHORDS = [
     name: 'Bb5 / A#5 Power Chord',
     shortName: 'Bb5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, 1, 3, 3, -1, -1],
     fingers: [-1, 1, 3, 4, -1, -1],
     rootString: 1,
@@ -296,7 +385,7 @@ export const CHORDS = [
     name: 'Db5 / C#5 Power Chord',
     shortName: 'Db5',
     category: ['power_chords'],
-    difficulty: 'Beginner',
+    difficulty: 'Beginner (2 Fingers)',
     frets: [-1, 4, 6, 6, -1, -1],
     fingers: [-1, 1, 3, 4, -1, -1],
     rootString: 1,
@@ -305,7 +394,9 @@ export const CHORDS = [
     tip: '4th fret on 5th (A) string. Slide from C5 or down to Bb5!'
   },
 
-  // --- EASY F & COLOR CHORDS ---
+  // =========================================================================
+  // ✨ EASY F & COLOR CHORDS
+  // =========================================================================
   {
     id: 'F_easy',
     name: 'F Major (Easy / Mini)',

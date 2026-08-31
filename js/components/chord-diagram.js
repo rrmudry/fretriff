@@ -100,8 +100,10 @@ export function createChordCard(chord, onSelect = null) {
 
   const isPower = chord.category.includes('power_chords');
   const isDozen = chord.category.includes('electric_dozen');
+  const isSuperBeginner = chord.category.includes('super_beginner');
 
   let tagsHtml = '';
+  if (isSuperBeginner) tagsHtml += `<span class="badge badge-super-beginner">🟢 1-2 Finger</span>`;
   if (isDozen) tagsHtml += `<span class="badge badge-dozen">⚡ Electric Dozen</span>`;
   if (isPower) tagsHtml += `<span class="badge badge-power">🔥 Rock Power</span>`;
 

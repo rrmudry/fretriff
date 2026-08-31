@@ -1,5 +1,6 @@
 /**
  * Interactive 22-Fret Electric Guitar Neck & Pentatonic Lead Studio
+ * Features: All Strings view, Single-String Focus Isolator, and Minor Pentatonic Scale
  */
 
 import { NOTES_SHARP, STANDARD_TUNING_MIDI, getFretNote, getPentatonicNotes } from '../utils/music-theory.js';
@@ -8,9 +9,10 @@ import { guitarSynth } from '../audio/synth.js';
 export class FretboardView {
   constructor(containerEl) {
     this.container = containerEl;
-    this.numFrets = 15; // 15 frets visible (standard zoom)
+    this.numFrets = 15; // 15 frets visible
     this.selectedKey = 'A';
     this.displayMode = 'pentatonic'; // 'pentatonic', 'all_notes', 'roots_only'
+    this.focusedString = 'all'; // 'all' or 0-5
     
     this.initUI();
     this.setupListeners();
@@ -34,6 +36,19 @@ export class FretboardView {
               <option value="pentatonic" selected>⚡ Minor Pentatonic Scale ("Rock Solo Pattern")</option>
               <option value="all_notes">🎼 All Fretboard Notes</option>
               <option value="roots_only">🎯 Root Notes Only</option>
+            </select>
+          </div>
+
+          <div class="control-item">
+            <label for="fretboard-string-focus" class="form-label">String Isolator:</label>
+            <select id="fretboard-string-focus" class="form-select">
+              <option value="all">🎸 All 6 Strings</option>
+              <option value="0">🟢 Isolate Low E (6th) String</option>
+              <option value="1">🟢 Isolate A (5th) String</option>
+              <option value="2">🟡 Isolate D (4th) String</option>
+              <option value="3">🟡 Isolate G (3rd) String</option>
+              <option value="4">🔴 Isolate B (2nd) String</option>
+              <option value="5">🔴 Isolate High E (1st) String</option>
             </select>
           </div>
         </div>
@@ -63,9 +78,12 @@ export class FretboardView {
     neck.innerHTML = '';
 
     const pentatonicNotes = getPentatonicNotes(this.selectedKey);
-    const stringNames = ['High E (1st)', 'B (2nd)', 'G (3rd)', 'D (4th)', 'A (5th)', 'Low E (6th)'];
-    // Invert display so High E is at top and Low E at bottom
-    const stringIndices = [5, 4, 3, 2, 1, 0]; 
+    // Standard visual order: High E on top (idx 5) to Low E on bottom (idx 0)
+    let stringIndices = [5, 4, 3, 2, 1, 0];
+    if (this.focusedString !== 'all') {
+      const target = parseInt(this.focusedString, 10);
+      stringIndices = [target];
+    }
 
     // Marker frets
     const singleDotFrets = [3, 5, 7, 9, 15, 17, 19, 21];
@@ -74,7 +92,6 @@ export class FretboardView {
     // Fret Number Header Row
     const numRow = document.createElement('div');
     numRow.className = 'fret-number-row';
-    // Open string label (fret 0)
     const openNum = document.createElement('div');
     openNum.className = 'fret-num-col open-col-header';
     openNum.textContent = 'Open';
@@ -92,9 +109,6 @@ export class FretboardView {
     stringIndices.forEach((strIdx) => {
       const stringRow = document.createElement('div');
       stringRow.className = 'fret-string-row';
-
-      // String thickness variation
-      const thickness = 1 + (5 - strIdx) * 0.5;
 
       // Open string fret (fret 0)
       const openFretEl = document.createElement('div');
@@ -183,6 +197,12 @@ export class FretboardView {
     const modeSelect = this.container.querySelector('#fretboard-mode-select');
     modeSelect.addEventListener('change', (e) => {
       this.displayMode = e.target.value;
+      this.renderFretboard();
+    });
+
+    const focusSelect = this.container.querySelector('#fretboard-string-focus');
+    focusSelect.addEventListener('change', (e) => {
+      this.focusedString = e.target.value;
       this.renderFretboard();
     });
   }
