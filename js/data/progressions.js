@@ -4,6 +4,51 @@
 
 export const PROGRESSIONS = [
   {
+    id: 'brain_stew_riff',
+    title: 'Brain Stew (Descending Power Riff)',
+    subtitle: 'The ultimate 5-chord punk rock slide (Green Day)',
+    key: 'A',
+    numerals: 'I - bVII - VI - bVI - V (Power)',
+    chords: ['A5_power', 'G5_power', 'Fs5_power', 'F5_power', 'E5_power'],
+    tempo: 76,
+    beatsPerChord: 2,
+    drumPattern: 'half_time',
+    strumPattern: ['D', 'D'],
+    category: 'Rock & Punk',
+    songs: ["Brain Stew - Green Day", "25 or 6 to 4 (riff vibe) - Chicago", "Babe I'm Gonna Leave You (Rock style)"],
+    theoryExplanation: 'The chromatic descending power-chord progression! Sliding one fret down at a time creates a driving, gritty, relentless momentum that sounds huge with overdrive.'
+  },
+  {
+    id: 'punk_power_riff',
+    title: 'T.N.T. & Punk Rock Power Anthem',
+    subtitle: 'Movable power chords that shake the floor with overdrive',
+    key: 'E',
+    numerals: 'I - bVII - IV',
+    chords: ['E5_power', 'G5_power', 'A5_power', 'E5_power'],
+    tempo: 125,
+    beatsPerChord: 4,
+    drumPattern: 'half_time',
+    strumPattern: ['D', 'D', 'D', 'D'], // Hard downstrokes
+    category: 'Rock & Punk',
+    songs: ["TNT - AC/DC", "Blitzkrieg Bop - Ramones", "All The Small Things - Blink-182", "Rock You Like a Hurricane - Scorpions"],
+    theoryExplanation: 'Power chords (Roots + 5ths) have no major/minor clash, letting you crank up the distortion and slide around the neck with punchy, unstoppable energy.'
+  },
+  {
+    id: 'teen_spirit_grunge',
+    title: 'Smells Like Teen Spirit (4-Power-Chord Grunge)',
+    subtitle: 'The famous F5 - Bb5 - Ab5 - Db5 grunge anthem',
+    key: 'F Minor',
+    numerals: 'i - iv - bIII - bVI (Power)',
+    chords: ['F5_power', 'Bb5_power', 'Ab5_power', 'Db5_power'],
+    tempo: 116,
+    beatsPerChord: 4,
+    drumPattern: 'rock_standard',
+    strumPattern: ['D', 'D', 'U', 'U', 'D', 'U'],
+    category: 'Rock & Punk',
+    songs: ["Smells Like Teen Spirit - Nirvana", "More Than a Feeling vibe - Boston", "When I Come Around - Green Day"],
+    theoryExplanation: 'Alternates power chords across strings 6 and 5! F5 (fret 1) -> Bb5 (fret 1) then slide up to Ab5 (fret 4) -> Db5 (fret 4).'
+  },
+  {
     id: 'pop_4chord_g',
     title: 'The 4-Chord Pop & Rock Hitmaker',
     subtitle: 'The famous I - V - vi - IV progression heard in hundreds of hit songs',
@@ -32,21 +77,6 @@ export const PROGRESSIONS = [
     category: 'Classic Rock',
     songs: ["Wild Thing - The Troggs", "Twist and Shout - The Beatles", "Bad Moon Rising - CCR", "Blitzkrieg Bop - Ramones"],
     theoryExplanation: 'The three most important chords in rock music! A is Home (I), D is the lift (IV), and E is the driving tension (V) that demands to resolve back to A.'
-  },
-  {
-    id: 'punk_power_riff',
-    title: 'Punk & Alt-Rock Power Anthem',
-    subtitle: 'Movable power chords that shake the floor with overdrive',
-    key: 'E',
-    numerals: 'I - bVII - IV',
-    chords: ['E5_power', 'D5_power', 'A5_power', 'E5_power'],
-    tempo: 125,
-    beatsPerChord: 4,
-    drumPattern: 'half_time',
-    strumPattern: ['D', 'D', 'D', 'D'], // Hard downstrokes
-    category: 'Rock & Punk',
-    songs: ["TNT - AC/DC", "Brain Stew - Green Day", "Smells Like Teen Spirit vibe - Nirvana", "All The Small Things - Blink-182"],
-    theoryExplanation: 'Power chords (Roots + 5ths) have no major/minor clash, letting you crank up the distortion and slide around the neck with punchy, unstoppable energy.'
   },
   {
     id: 'moody_emotional_em',

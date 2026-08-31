@@ -252,6 +252,58 @@ export const CHORDS = [
     baseFret: 1,
     tip: 'The easiest way to play an F chord on electric guitar without difficult full barre fingering!'
   },
+  {
+    id: 'Fs5_power',
+    name: 'F#5 Power Chord (Movable)',
+    shortName: 'F#5',
+    category: ['power_chords'],
+    difficulty: 'Beginner',
+    frets: [2, 4, 4, -1, -1, -1],
+    fingers: [1, 3, 4, -1, -1, -1],
+    rootString: 0,
+    notesSpelled: ['F#', 'C#', 'F#', 'X', 'X', 'X'],
+    baseFret: 1,
+    tip: '2nd fret on 6th string. Key chord in Brain Stew and rock progressions.'
+  },
+  {
+    id: 'Ab5_power',
+    name: 'Ab5 / G#5 Power Chord',
+    shortName: 'Ab5',
+    category: ['power_chords'],
+    difficulty: 'Beginner',
+    frets: [4, 6, 6, -1, -1, -1],
+    fingers: [1, 3, 4, -1, -1, -1],
+    rootString: 0,
+    notesSpelled: ['Ab', 'Eb', 'Ab', 'X', 'X', 'X'],
+    baseFret: 1,
+    tip: '4th fret on 6th string. Heard in Smells Like Teen Spirit and Eye of the Tiger.'
+  },
+  {
+    id: 'Bb5_power',
+    name: 'Bb5 / A#5 Power Chord',
+    shortName: 'Bb5',
+    category: ['power_chords'],
+    difficulty: 'Beginner',
+    frets: [-1, 1, 3, 3, -1, -1],
+    fingers: [-1, 1, 3, 4, -1, -1],
+    rootString: 1,
+    notesSpelled: ['X', 'Bb', 'F', 'Bb', 'X', 'X'],
+    baseFret: 1,
+    tip: '1st fret on 5th (A) string. Fundamental punk chord.'
+  },
+  {
+    id: 'Db5_power',
+    name: 'Db5 / C#5 Power Chord',
+    shortName: 'Db5',
+    category: ['power_chords'],
+    difficulty: 'Beginner',
+    frets: [-1, 4, 6, 6, -1, -1],
+    fingers: [-1, 1, 3, 4, -1, -1],
+    rootString: 1,
+    notesSpelled: ['X', 'Db', 'Ab', 'Db', 'X', 'X'],
+    baseFret: 1,
+    tip: '4th fret on 5th (A) string. Slide from C5 or down to Bb5!'
+  },
 
   // --- EASY F & COLOR CHORDS ---
   {
