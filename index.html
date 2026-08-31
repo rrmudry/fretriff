@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RiffLab - Electric Guitar Companion | Chords, Progressions, Tabs & Tuner</title>
+  <meta name="description" content="Interactive Electric Guitar companion for beginners. Learn the Electric Dozen, rock power chords, chord progressions, interactive tabs, and use the real-time guitar tuner.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/fretboard.css">
+  <link rel="stylesheet" href="css/tuner.css">
+  <link rel="stylesheet" href="css/tab-player.css">
+
+  <!-- Favicon / App Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎸</text></svg>">
+</head>
+<body>
+
+  <!-- Top App Header / Amp Control Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <h1>RiffLab</h1>
+          <span class="brand-badge">Electric Guitar Companion</span>
+        </div>
+      </div>
+
+      <!-- Virtual Amp & Sound Controls -->
+      <div class="amp-control-panel">
+        <div class="amp-control-item">
+          <label for="amp-tone-select" class="amp-label">Amp Tone:</label>
+          <select id="amp-tone-select" class="amp-select" title="Switch Guitar Sound">
+            <option value="overdrive">🔥 Overdrive / Crunch</option>
+            <option value="clean">✨ Clean Electric</option>
+            <option value="acoustic">🪵 Acoustic Pluck</option>
+          </select>
+        </div>
+
+        <div class="vol-control-item">
+          <button id="btn-master-mute" class="btn-icon-mute" title="Mute Sound">🔊</button>
+          <input type="range" id="master-vol-slider" min="0" max="1" step="0.05" value="0.8" class="vol-slider" title="Master Volume">
+        </div>
+
+        <button id="btn-open-theory-guide" class="header-action-btn" title="Open Electric Guitar Guide">
+          💡 Guitar Guide
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tab Bar -->
+  <nav class="app-nav-bar" aria-label="Main Navigation">
+    <div class="nav-container">
+      <button class="nav-tab-btn active" data-target="section-chords">
+        🎸 The "Electric Dozen" & Chords
+      </button>
+      <button class="nav-tab-btn" data-target="section-progressions">
+        🎼 Progression Studio ("Sounds Good Together")
+      </button>
+      <button class="nav-tab-btn" data-target="section-tabs">
+        📜 Interactive Tabs & Riffs
+      </button>
+      <button class="nav-tab-btn" data-target="section-tuner">
+        🎯 Precision Guitar Tuner
+      </button>
+      <button class="nav-tab-btn" data-target="section-fretboard">
+        ⚡ Fretboard & Pentatonic Lead
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="app-main">
+
+    <!-- =========================================================
+         SECTION 1: CHORD LIBRARY & THE ELECTRIC DOZEN
+         ========================================================= -->
+    <section id="section-chords" class="app-section active">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>The "Electric Dozen" & Essential Guitar Chords</h2>
+          <p>
+            Just like the ukulele's <em>"Easy Dozen"</em>, electric guitar has its own core foundation: the <strong>Essential 8 Open Chords</strong>, <strong>Blues 7ths</strong>, plus the rock-and-roll superpower: <strong>Movable Power Chords</strong>!
+          </p>
+        </div>
+        <div class="banner-highlight">
+          <strong>🎸 Pro Tip:</strong> Click any string dot to hear an individual note, or hit <em>Strum</em> to hear the whole chord through your virtual amplifier!
+        </div>
+      </div>
+
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="filter-chips-wrap" id="chord-filter-chips">
+          <!-- Filter chips dynamically populated -->
+        </div>
+
+        <div class="search-box-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="chord-search-input" class="search-input" placeholder="Search chord (e.g. E5, Am, C)...">
+        </div>
+      </div>
+
+      <!-- Chords Grid -->
+      <div class="chords-grid" id="chords-grid">
+        <!-- Chord cards rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 2: CHORD PROGRESSION STUDIO
+         ========================================================= -->
+    <section id="section-progressions" class="app-section">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>Chord Progression Studio: "Sounds Good Together"</h2>
+          <p>
+            Discover why chords flow naturally into each other. Play along with drum backing beats, follow the animated strumming rhythm guide, or build your own custom hit song progression!
+          </p>
+        </div>
+      </div>
+
+      <div id="progression-studio-container">
+        <!-- Rendered by ProgressionPlayer component -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 3: INTERACTIVE TABS & RIFFS
+         ========================================================= -->
+    <section id="section-tabs" class="app-section">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>Interactive Tablature & Riff Trainer</h2>
+          <p>
+            Learn iconic electric guitar riffs note by note. Follow the scrolling playhead, adjust practice speed (0.5x, 0.75x, 1x), loop tricky parts, or write your own custom tabs!
+          </p>
+        </div>
+      </div>
+
+      <div id="tab-viewer-container">
+        <!-- Rendered by TabViewer component -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 4: PRECISION GUITAR TUNER
+         ========================================================= -->
+    <section id="section-tuner" class="app-section">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>Precision Guitar Tuner (Microphone & Reference Pitch)</h2>
+          <p>
+            Tune your electric guitar in real time using your microphone, or click any peg on the virtual headstock to tune by ear with studio reference tones.
+          </p>
+        </div>
+      </div>
+
+      <div id="tuner-container">
+        <!-- Rendered by TunerUI component -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 5: FRETBOARD & PENTATONIC LEAD
+         ========================================================= -->
+    <section id="section-fretboard" class="app-section">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>Fretboard Explorer & Minor Pentatonic Solo Visualizer</h2>
+          <p>
+            Explore all 22 frets on the electric guitar neck. Learn <strong>Minor Pentatonic Box 1</strong>—the single scale pattern used in 90% of classic rock solos! Click any fret to play notes instantly.
+          </p>
+        </div>
+      </div>
+
+      <div id="fretboard-container">
+        <!-- Rendered by FretboardView component -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Educational Guide Modal -->
+  <dialog id="theory-guide-modal" class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚡ The Beginner Electric Guitar Playbook</h3>
+        <button id="btn-close-modal" class="btn-close" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="guide-section">
+        <h4>1. What is the "Easy Dozen" for Guitar?</h4>
+        <p>
+          In ukulele, the <em>"Easy Dozen"</em> teaches open chords to play thousands of songs. On guitar, the foundation is:
+        </p>
+        <ul>
+          <li><strong>The 8 Open Foundation Chords ("The Big 8")</strong>: E Major, E Minor, A Major, A Minor, D Major, D Minor, C Major, and G Major.</li>
+          <li><strong>The 4 Essential Dominant 7ths</strong>: E7, A7, D7, and B7 (the heartbeat of blues and classic rock).</li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h4>2. The Electric Guitar Secret Weapon: Power Chords (5 Chords)</h4>
+        <p>
+          Unlike acoustic or ukulele, electric guitar has <strong>Power Chords (E5, A5, D5, G5, C5, F5)</strong>. They only contain the Root and 5th note (no major/minor third), which means:
+        </p>
+        <ul>
+          <li>You only need <strong>2 fingers</strong>!</li>
+          <li>They NEVER clash with distortion or overdrive.</li>
+          <li>They are <strong>movable shapes</strong>: slide the same shape up and down the neck to play Green Day, AC/DC, Nirvana, and Foo Fighters instantly.</li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h4>3. Why Chords Sound Good Together (The Roman Numeral Secret)</h4>
+        <p>
+          Chords work together like a story:
+        </p>
+        <ul>
+          <li><strong>I (The Tonic / "Home")</strong>: The starting ground (e.g. G in Key of G). Feels complete and safe.</li>
+          <li><strong>IV (The Subdominant / "The Journey")</strong>: Lifts energy and moves away from home (e.g. C).</li>
+          <li><strong>V (The Dominant / "The Tension")</strong>: Creates a strong magnetic pull that wants to snap back Home (e.g. D).</li>
+          <li><strong>vi (The Minor / "The Emotion")</strong>: Adds mystery, moodiness, and soul (e.g. Em).</li>
+        </ul>
+      </div>
+
+      <div class="guide-section">
+        <h4>4. How to Host on GitHub Pages</h4>
+        <p>
+          This entire app is 100% static HTML, CSS, and modern JavaScript modules. To host it:
+        </p>
+        <ul>
+          <li>Push this repository to GitHub.</li>
+          <li>Go to <strong>Settings → Pages</strong> in your GitHub repo.</li>
+          <li>Select the <strong>main</strong> branch (root <code>/</code>) and click <strong>Save</strong>.</li>
+          <li>Your app will be live worldwide in seconds!</li>
+        </ul>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- App Entry Point (ES Module) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

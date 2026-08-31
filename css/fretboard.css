@@ -1,0 +1,269 @@
+/**
+ * Fretboard & Chord SVG Styling
+ */
+
+/* Chord SVG Styles */
+.chord-svg {
+  width: 100%;
+  max-width: 190px;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+  user-select: none;
+}
+
+.fret-num-label {
+  fill: var(--accent-cyan);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mute-indicator {
+  fill: #ef4444;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.open-indicator {
+  fill: none;
+  stroke: var(--accent-cyan);
+  stroke-width: 1.8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.open-indicator:hover {
+  fill: var(--accent-cyan);
+}
+
+.string-line {
+  transition: stroke 0.2s;
+}
+
+.dot-group {
+  cursor: pointer;
+}
+
+.finger-dot {
+  fill: var(--accent-cyan);
+  filter: drop-shadow(0 0 6px var(--accent-cyan-glow));
+  transition: transform 0.2s, fill 0.2s;
+}
+
+.dot-group:hover .finger-dot {
+  fill: #38bdf8;
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
+.root-dot {
+  fill: var(--accent-amber);
+  filter: drop-shadow(0 0 8px var(--accent-amber-glow));
+}
+
+.dot-label {
+  fill: #031326;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.bottom-note-label {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pulse-pluck {
+  animation: pluckGlow 0.3s ease-out;
+}
+
+@keyframes pluckGlow {
+  0% { transform: scale(1.35); fill: #ffffff; }
+  100% { transform: scale(1); }
+}
+
+/* Fretboard Studio Styles */
+.fretboard-studio-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.fretboard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.fretboard-controls .control-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fretboard-tip-card {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(139, 92, 246, 0.08));
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.fretboard-tip-card h4 {
+  color: var(--accent-cyan);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.fretboard-tip-card p {
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+}
+
+.fretboard-scroll-wrap {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-secondary);
+}
+
+.fretboard-neck {
+  min-width: 960px;
+  background: linear-gradient(180deg, #1c1917 0%, #292524 50%, #1c1917 100%);
+  border-top: 2px solid #57534e;
+  border-bottom: 2px solid #57534e;
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), var(--shadow-md);
+  padding: 0.5rem 0 1rem;
+  position: relative;
+  user-select: none;
+}
+
+.fret-number-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3rem;
+}
+
+.fret-num-col {
+  flex: 1;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-family: var(--font-display);
+}
+
+.open-col-header {
+  flex: 0 0 65px;
+  color: var(--accent-cyan);
+}
+
+.fret-string-row {
+  display: flex;
+  height: 44px;
+  position: relative;
+  align-items: center;
+}
+
+/* Horizontal string metal wire */
+.fret-string-row::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #94a3b8, #cbd5e1, #94a3b8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fret-cell {
+  flex: 1;
+  height: 100%;
+  border-right: 3px solid #78716c; /* Fret wire */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.fret-cell:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fret-0-nut {
+  flex: 0 0 65px;
+  border-right: 6px solid #e2e8f0; /* Bone Nut */
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.fret-inlay-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fret-inlay-dot.double-dot {
+  width: 10px;
+  height: 10px;
+}
+
+.fret-note-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: #334155;
+  color: #ffffff;
+}
+
+.fret-cell:hover .fret-note-marker {
+  transform: scale(1.2);
+}
+
+.pentatonic-marker {
+  background: linear-gradient(135deg, var(--accent-cyan), #0284c7);
+  color: #031326;
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+}
+
+.root-marker {
+  background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+  color: #031326;
+  box-shadow: 0 0 12px var(--accent-amber-glow);
+}
+
+.fret-plucked {
+  animation: fretPulse 0.3s ease-out;
+}
+
+@keyframes fretPulse {
+  0% { background: rgba(0, 240, 255, 0.4); }
+  100% { background: transparent; }
+}

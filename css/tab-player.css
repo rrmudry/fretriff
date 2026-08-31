@@ -1,0 +1,588 @@
+/**
+ * Tab Player & Chord Progression Studio Styling
+ */
+
+/* Progression Studio Styles */
+.progression-studio-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+}
+
+.studio-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.preset-selector-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 320px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.form-select {
+  background: var(--bg-input);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+  width: 100%;
+}
+
+.form-select:focus {
+  border-color: var(--accent-cyan);
+}
+
+.form-select-sm {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
+}
+
+.transport-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tempo-control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tempo-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.slider {
+  accent-color: var(--accent-cyan);
+  cursor: pointer;
+}
+
+/* Rhythm & Strum Guide Bar */
+.rhythm-guide-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.rhythm-guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.rhythm-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.numerals-badge {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.strum-guide-legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.arrow-icon {
+  color: var(--accent-cyan);
+  font-weight: 900;
+}
+
+.beat-dots-container {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.beat-box {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transition: all 0.15s ease-out;
+}
+
+.beat-box.current {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+  transform: translateY(-2px);
+}
+
+.beat-number {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.beat-box.current .beat-number {
+  color: var(--accent-cyan);
+}
+
+.beat-strum-arrow {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+/* Progression Cards Grid */
+.progression-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.progression-chord-item {
+  background: var(--bg-secondary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.progression-chord-item:hover {
+  border-color: var(--color-border-hover);
+  background: var(--bg-card-hover);
+}
+
+.progression-chord-item.active-beat {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: 0 0 20px var(--accent-cyan-glow);
+  transform: scale(1.04);
+}
+
+.step-num {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.progression-chord-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.progression-svg-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-strum-single {
+  margin-top: 0.4rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-secondary);
+}
+
+/* Custom Progression Builder */
+.custom-builder-section {
+  background: var(--bg-secondary);
+  border: 1px dashed var(--accent-cyan);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.custom-builder-header h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--accent-cyan);
+}
+
+.custom-builder-header p {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.custom-chord-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.custom-sequence-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  background: var(--bg-input);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+}
+
+.custom-sequence-list {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.custom-chord-pill {
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid var(--accent-cyan);
+  color: #ffffff;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* Theory & Songs Grid */
+.theory-and-songs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .theory-and-songs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+.info-card h4 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.theory-card h4 {
+  color: var(--accent-amber);
+}
+
+.songs-card h4 {
+  color: var(--accent-cyan);
+}
+
+.songs-list {
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.songs-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* =========================================================
+   TAB VIEWER STYLES
+   ========================================================= */
+.tab-player-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+}
+
+.tab-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-selector-group {
+  min-width: 320px;
+}
+
+.tab-transport {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.speed-control-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-input);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.control-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.btn-group {
+  display: flex;
+  gap: 2px;
+}
+
+.btn-speed.active {
+  background: var(--accent-cyan);
+  color: #031326;
+  font-weight: 700;
+}
+
+/* Tab Info Card */
+.tab-info-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-info-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+
+.tab-info-main h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.tab-artist {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.tab-desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tab-tip-badge {
+  background: rgba(0, 240, 255, 0.08);
+  border-left: 3px solid var(--accent-cyan);
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  color: #e0f2fe;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Tab Sheet Rendering */
+.tab-sheet-scroll-container {
+  overflow-x: auto;
+  padding: 1.5rem 0.5rem;
+  margin-bottom: 1.5rem;
+  background: #090d16;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-cyan) var(--bg-secondary);
+}
+
+.tab-sheet {
+  display: flex;
+  align-items: stretch;
+  min-width: 700px;
+  position: relative;
+}
+
+.tab-string-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  padding: 0.5rem 0.25rem 0.5rem 0.75rem;
+  border-right: 2px solid #475569;
+}
+
+.tab-line-label {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+.tab-columns-container {
+  display: flex;
+  flex: 1;
+  padding: 0.5rem 0.5rem;
+}
+
+.tab-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 46px;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.1s;
+  position: relative;
+}
+
+.tab-column:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-column.active-col {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+}
+
+.tab-column.active-col::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+  pointer-events: none;
+}
+
+.tab-note-slot {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Horizontal string wire behind the note */
+.tab-note-slot::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: 50%;
+  height: 1px;
+  background: #334155;
+  z-index: 0;
+}
+
+.fret-badge {
+  background: #1e293b;
+  color: #ffffff;
+  border: 1px solid var(--accent-cyan);
+  border-radius: var(--radius-sm);
+  padding: 0.1rem 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.tab-column.active-col .fret-badge {
+  background: var(--accent-cyan);
+  color: #031326;
+  box-shadow: 0 0 10px var(--accent-cyan-glow);
+  transform: scale(1.15);
+}
+
+.empty-line {
+  color: transparent;
+  user-select: none;
+}
+
+/* Custom Tab creator accordion */
+.tab-creator-accordion {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+}
+
+.details-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+}
+
+.details-summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+.details-summary:hover {
+  color: var(--color-text-primary);
+}
+
+.custom-tab-input-wrap {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.custom-tab-input-wrap textarea {
+  background: var(--bg-input);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
