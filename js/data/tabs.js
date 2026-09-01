@@ -595,5 +595,200 @@ export const TAB_PRESETS = [
       { notes: [{ str: 1, fret: 3 }], dur: 2.0, label: '3' },
       { notes: [{ str: 1, fret: 2 }], dur: 2.0, label: '2' }
     ]
+  },
+
+  // =========================================================================
+  // ⚡ THE OFFSPRING & 90s PUNK ANTHEMS
+  // =========================================================================
+  {
+    id: 'the_kids_arent_alright',
+    title: "The Kids Aren't Alright (Intro Lead & Power Riff)",
+    artist: 'The Offspring',
+    tabCategory: 'riffs',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner (Fast Punk Lead)',
+    tempo: 145,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The definitive 90s punk intro! Fast, melodic single-note riff that explodes into driving A5 -> F5 -> C5 -> G5 power chords.',
+    tips: 'Played on the 4th (D) string: Frets 7-7-7-10-9-7, then 5-5-5-8-7-5! Use alternate picking.',
+    tabColumns: [
+      // D string 7-7-7-10-9-7
+      { notes: [{ str: 2, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 2, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 2, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 2, fret: 10 }], dur: 0.75, label: '10' },
+      { notes: [{ str: 2, fret: 9 }], dur: 0.75, label: '9' },
+      { notes: [{ str: 2, fret: 7 }], dur: 1.0, label: '7' },
+      // D string 5-5-5-8-7-5
+      { notes: [{ str: 2, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 2, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 2, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 2, fret: 8 }], dur: 0.75, label: '8' },
+      { notes: [{ str: 2, fret: 7 }], dur: 0.75, label: '7' },
+      { notes: [{ str: 2, fret: 5 }], dur: 1.0, label: '5' },
+      // Power Chords blast: A5 -> F5 -> C5 -> G5
+      { notes: [{ str: 1, fret: 0 }, { str: 2, fret: 2 }], dur: 1.0, label: 'A5' },
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 1.0, label: 'F5' },
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 5 }], dur: 1.0, label: 'C5' },
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' }
+    ]
+  },
+  {
+    id: 'come_out_and_play',
+    title: "Come Out and Play (Keep 'Em Separated)",
+    artist: 'The Offspring',
+    tabCategory: 'riffs',
+    stringCategory: 'single_string',
+    difficulty: 'Beginner (Iconic Hook)',
+    tempo: 158,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The legendary Middle-Eastern surf-punk riff! Played on the 2nd (B) string with bouncy groove.',
+    tips: 'B string frets: 0 -> 1 -> 4 -> 3 -> 1 -> 0! Add a little mute after fret 4 for that punchy Offspring flavor.',
+    tabColumns: [
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 4, fret: 4 }], dur: 1.0, label: '4' },
+      { notes: [{ str: 4, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 4, fret: 0 }], dur: 1.0, label: '0' },
+      // Second half
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 4, fret: 4 }], dur: 1.0, label: '4' },
+      { notes: [{ str: 4, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 4, fret: 0 }], dur: 1.5, label: '0' },
+      // Vocal chant punch: B5 power chord
+      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 1.0, label: 'B5' },
+      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 1.0, label: 'B5' }
+    ]
+  },
+  {
+    id: 'self_esteem',
+    title: 'Self Esteem (Intro & Verse Riff)',
+    artist: 'The Offspring',
+    tabCategory: 'riffs',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner (Power Chords)',
+    tempo: 104,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The huge 90s alternative anthem. Heavy power chords with two muted palm chugs (X-X) between each chord.',
+    tips: 'Strum A5 -> mute-mute -> F5 -> mute-mute -> C5 -> mute-mute -> G5.',
+    tabColumns: [
+      // A5
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.0, label: 'A5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 0.5, label: 'A5' },
+      { notes: [], dur: 0.5, label: 'X' },
+      // F5
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 1.0, label: 'F5' },
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 0.5, label: 'F5' },
+      { notes: [], dur: 0.5, label: 'X' },
+      // C5
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 5 }], dur: 1.0, label: 'C5' },
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 5 }], dur: 0.5, label: 'C5' },
+      { notes: [], dur: 0.5, label: 'X' },
+      // G5
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' },
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' }
+    ]
+  },
+
+  // =========================================================================
+  // ⚡ IMAGINE DRAGONS ANTHEMS
+  // =========================================================================
+  {
+    id: 'demons_imagine_dragons',
+    title: 'Demons (Intro Arpeggio & Main Progression)',
+    artist: 'Imagine Dragons',
+    tabCategory: 'full_songs',
+    stringCategory: 'multi_string',
+    difficulty: 'Beginner (Clean Pluck)',
+    tempo: 90,
+    timeSignature: '4/4',
+    tuning: 'Standard (Capo 1 / Standard)',
+    description: 'The soaring global hit! Features the crisp clean guitar picking pattern over C -> G -> Am -> F with the famous melody line.',
+    tips: 'Hold the open chord shape and pick Bass note -> 3rd string -> 2nd string -> 1st string.',
+    tabColumns: [
+      // C chord pluck
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 3, fret: 0 }], dur: 0.5, label: 'G' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 5, fret: 0 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 4, fret: 1 }], dur: 1.0, label: 'C' },
+      { notes: [{ str: 3, fret: 0 }], dur: 1.0, label: 'G' },
+      // G chord pluck
+      { notes: [{ str: 0, fret: 3 }], dur: 0.5, label: 'G' },
+      { notes: [{ str: 3, fret: 0 }], dur: 0.5, label: 'G' },
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: 'B' },
+      { notes: [{ str: 5, fret: 3 }], dur: 0.5, label: 'G' },
+      { notes: [{ str: 4, fret: 0 }], dur: 1.0, label: 'B' },
+      { notes: [{ str: 3, fret: 0 }], dur: 1.0, label: 'G' },
+      // Am chord pluck
+      { notes: [{ str: 1, fret: 0 }], dur: 0.5, label: 'A' },
+      { notes: [{ str: 3, fret: 2 }], dur: 0.5, label: 'A' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 5, fret: 0 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 4, fret: 1 }], dur: 1.0, label: 'C' },
+      { notes: [{ str: 3, fret: 2 }], dur: 1.0, label: 'A' },
+      // F chord pluck
+      { notes: [{ str: 2, fret: 3 }], dur: 0.5, label: 'F' },
+      { notes: [{ str: 3, fret: 2 }], dur: 0.5, label: 'A' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 5, fret: 0 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 4, fret: 1 }], dur: 1.0, label: 'C' },
+      { notes: [{ str: 3, fret: 2 }], dur: 1.0, label: 'A' }
+    ]
+  },
+  {
+    id: 'radioactive_imagine_dragons',
+    title: 'Radioactive (Heavy Distortion Groove)',
+    artist: 'Imagine Dragons',
+    tabCategory: 'full_songs',
+    stringCategory: 'multi_string',
+    difficulty: 'Beginner (Heavy Rhythm)',
+    tempo: 136,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Massive stadium rock energy with the Am -> C -> G -> D progression and heavy palm-muted electric guitar chugs.',
+    tips: 'Use heavy downstrokes with overdrive. Accentuate the downbeat of each chord change!',
+    tabColumns: [
+      // Am
+      { notes: [{ str: 1, fret: 0 }, { str: 2, fret: 2 }, { str: 3, fret: 2 }], dur: 2.0, label: 'Am' },
+      { notes: [{ str: 1, fret: 0 }, { str: 2, fret: 2 }], dur: 2.0, label: 'Am chug' },
+      // C
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 2 }, { str: 3, fret: 0 }], dur: 2.0, label: 'C' },
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 2 }], dur: 2.0, label: 'C chug' },
+      // G
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 2 }, { str: 2, fret: 0 }], dur: 2.0, label: 'G' },
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 2 }], dur: 2.0, label: 'G chug' },
+      // D
+      { notes: [{ str: 2, fret: 0 }, { str: 3, fret: 2 }, { str: 4, fret: 3 }], dur: 2.0, label: 'D' },
+      { notes: [{ str: 2, fret: 0 }, { str: 3, fret: 2 }], dur: 2.0, label: 'D chug' }
+    ]
+  },
+  {
+    id: 'believer_imagine_dragons',
+    title: 'Believer (Driving Rock Cadence)',
+    artist: 'Imagine Dragons',
+    tabCategory: 'riffs',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner (Punchy Stabs)',
+    tempo: 125,
+    timeSignature: '12/8',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The explosive hit with driving, percussive power chords: Am (A5) -> F (F5) -> E (E5).',
+    tips: 'Play sharp, punchy downstrokes. Rest your picking palm on the strings right after striking for a tight stop.',
+    tabColumns: [
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.0, label: 'A5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 0.5, label: 'A5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.5, label: 'A5' },
+      { notes: [], dur: 0.5, label: 'X' },
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 1.0, label: 'F5' },
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 0.5, label: 'F5' },
+      { notes: [{ str: 0, fret: 0 }, { str: 1, fret: 2 }], dur: 2.0, label: 'E5' }
+    ]
   }
 ];

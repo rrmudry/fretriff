@@ -4,6 +4,51 @@
 
 export const PROGRESSIONS = [
   {
+    id: 'offspring_punk_anthem',
+    title: "The Kids Aren't Alright & Self Esteem (The Offspring)",
+    subtitle: 'The driving vi - IV - I - V 90s punk power chord progression',
+    key: 'A minor',
+    numerals: 'i - VI - III - VII (or vi - IV - I - V)',
+    chords: ['A5_power', 'F5_power', 'C5_power', 'G5_power'],
+    tempo: 145,
+    beatsPerChord: 4,
+    drumPattern: 'rock_standard',
+    strumPattern: ['D', 'D', 'D', 'U', 'D', 'U'],
+    category: 'Rock & Punk',
+    songs: ["The Kids Aren't Alright - The Offspring", "Self Esteem - The Offspring", "You're Gonna Go Far, Kid - The Offspring", "Save Tonight - Eagle-Eye Cherry"],
+    theoryExplanation: 'The greatest high-energy punk progression! Starting on A5 brings driving minor grit, then jumping to F5, C5, and G5 lifts the melody with explosive speed.'
+  },
+  {
+    id: 'demons_imagine_dragons_prog',
+    title: 'Demons & Pop-Rock Anthems (Imagine Dragons)',
+    subtitle: 'The timeless I - V - vi - IV progression in C Major',
+    key: 'C',
+    numerals: 'I - V - vi - IV',
+    chords: ['C_maj', 'G_maj', 'Am_min', 'F_easy'],
+    tempo: 90,
+    beatsPerChord: 4,
+    drumPattern: 'pop_groove',
+    strumPattern: ['D', 'D', 'U', 'U', 'D', 'U'],
+    category: 'Pop & Modern Rock',
+    songs: ["Demons - Imagine Dragons", "Someone Like You - Adele", "Let It Be - The Beatles", "No Woman No Cry - Bob Marley"],
+    theoryExplanation: 'Why Demons sounds so uplifting yet emotional: C (Home I) flows into bright G (V), then drops into emotional Am (vi), and lifts back up through F (IV) before resolving home!'
+  },
+  {
+    id: 'radioactive_imagine_dragons_prog',
+    title: 'Radioactive (Imagine Dragons / Alt-Rock)',
+    subtitle: 'The heavy vi - I - V - II stadium rock groove',
+    key: 'A minor (C)',
+    numerals: 'vi - I - V - II',
+    chords: ['Am_min', 'C_maj', 'G_maj', 'D_maj'],
+    tempo: 136,
+    beatsPerChord: 4,
+    drumPattern: 'half_time',
+    strumPattern: ['D', 'D', 'D', 'D'], // Heavy downstrokes
+    category: 'Indie & Alternative',
+    songs: ["Radioactive - Imagine Dragons", "Counting Stars (Chorus) - OneRepublic", "Zombie - The Cranberries"],
+    theoryExplanation: 'Am to C starts dark then blooms wide open, followed by G and D. Heavy, powerful, and huge with an overdrive guitar sound.'
+  },
+  {
     id: 'brain_stew_riff',
     title: 'Brain Stew (Descending Power Riff)',
     subtitle: 'The ultimate 5-chord punk rock slide (Green Day)',
@@ -90,7 +135,7 @@ export const PROGRESSIONS = [
     drumPattern: 'rock_standard',
     strumPattern: ['D', 'U', 'D', 'U', 'D', 'U'],
     category: 'Indie & Alternative',
-    songs: ["Zombie - The Cranberries", "Let Her Go - Passenger", "Demons - Imagine Dragons", "Africa - Toto"],
+    songs: ["Zombie - The Cranberries", "Let Her Go - Passenger", "Demons (Em Key) - Imagine Dragons", "Africa - Toto"],
     theoryExplanation: 'Starting on the minor chord (Em) sets a reflective, moody tone. Then stepping through C and G adds soaring hope, while D guides you back to Em.'
   },
   {
@@ -129,7 +174,7 @@ export const PROGRESSIONS = [
   },
   {
     id: 'andalusian_flamenco_rock',
-    title: 'Andalusian Rock Cadence',
+    title: 'Believer & Andalusian Rock Cadence',
     subtitle: 'The dramatic descending i - bVII - bVI - V',
     key: 'A minor',
     numerals: 'i - bVII - bVI - V',
@@ -139,7 +184,7 @@ export const PROGRESSIONS = [
     drumPattern: 'rock_standard',
     strumPattern: ['D', 'D', 'D', 'U'],
     category: 'Classic Rock',
-    songs: ["Stairway to Heaven (Solo) - Led Zeppelin", "Sultans of Swing - Dire Straits", "Hotel California - Eagles", "Smooth - Santana"],
+    songs: ["Believer vibe - Imagine Dragons", "Stairway to Heaven (Solo) - Led Zeppelin", "Sultans of Swing - Dire Straits", "Smooth - Santana"],
     theoryExplanation: 'A descending staircase of bass notes (A -> G -> F -> E). Finishing on major E creates a huge classical/Spanish resolution back to Am!'
   },
   {
