@@ -128,6 +128,24 @@ export class TabViewer {
     }
   }
 
+  loadPresetById(id) {
+    const preset = TAB_PRESETS.find(t => t.id === id);
+    if (!preset) return;
+
+    const cat = preset.tabCategory || 'all';
+    this.updateCategory(cat);
+
+    const filterChips = this.container.querySelectorAll('.tab-category-chip');
+    filterChips.forEach(c => {
+      c.classList.toggle('active', c.dataset.cat === cat);
+    });
+
+    const select = this.container.querySelector('#tab-preset-select');
+    if (select) select.value = id;
+
+    this.loadPreset(preset);
+  }
+
   loadPreset(preset) {
     this.stop();
     this.currentPreset = preset;

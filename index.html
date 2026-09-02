@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/fretboard.css">
   <link rel="stylesheet" href="css/tuner.css">
   <link rel="stylesheet" href="css/tab-player.css">
+  <link rel="stylesheet" href="css/exercises.css">
 
   <!-- Favicon / App Icon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎸</text></svg>">
@@ -61,7 +62,10 @@
         🎼 Progression Studio ("Sounds Good Together")
       </button>
       <button class="nav-tab-btn" data-target="section-tabs">
-        📜 Interactive Tabs & Riffs
+        📜 Interactive Tabs & Songs
+      </button>
+      <button class="nav-tab-btn" data-target="section-exercises">
+        🏋️ Daily Exercises & Drills
       </button>
       <button class="nav-tab-btn" data-target="section-tuner">
         🎯 Precision Guitar Tuner
@@ -146,7 +150,28 @@
     </section>
 
     <!-- =========================================================
-         SECTION 4: PRECISION GUITAR TUNER
+         SECTION 4: DAILY BEGINNER EXERCISES & PRACTICE ROUTINES
+         ========================================================= -->
+    <section id="section-exercises" class="app-section">
+      <div class="section-banner">
+        <div class="banner-content">
+          <h2>🏋️ Daily Beginner Exercises & Practice Gym</h2>
+          <p>
+            Build lightning-fast muscle memory, clean finger independence, speed, and smooth chord switches with 3-minute daily focused workouts!
+          </p>
+        </div>
+        <div class="banner-highlight">
+          <strong>🎯 The 3-Minute Rule:</strong> Just 3 minutes of daily spider walks & picking drills before songs builds coordination 5x faster than hours of unfocused playing.
+        </div>
+      </div>
+
+      <div id="exercises-container">
+        <!-- Rendered by ExerciseView component -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SECTION 5: PRECISION GUITAR TUNER
          ========================================================= -->
     <section id="section-tuner" class="app-section">
       <div class="section-banner">

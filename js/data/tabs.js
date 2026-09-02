@@ -10,6 +10,7 @@
 
 export const TAB_CATEGORIES = [
   { id: 'all', name: 'All Tabs & Songs', icon: '🌟' },
+  { id: 'exercises', name: '🏋️ Beginner Drills & Exercises', icon: '🏋️' },
   { id: 'themes', name: '🎮 Themes & Movie Melodies', icon: '🎮' },
   { id: 'solos', name: '🎸 Iconic First Solos', icon: '🎸' },
   { id: 'full_songs', name: '🎼 Full Song Parts & Arpeggios', icon: '🎼' },
@@ -789,6 +790,286 @@ export const TAB_PRESETS = [
       { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 1.0, label: 'F5' },
       { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 0.5, label: 'F5' },
       { notes: [{ str: 0, fret: 0 }, { str: 1, fret: 2 }], dur: 2.0, label: 'E5' }
+    ]
+  },
+
+  // =========================================================================
+  // 🏋️ DAILY BEGINNER DRILLS & WARM-UPS
+  // =========================================================================
+  {
+    id: 'spider_walk_tab',
+    title: 'The Spider Walk (1-2-3-4 Chromatic Warm-Up)',
+    artist: 'Essential Daily Drill',
+    tabCategory: 'exercises',
+    stringCategory: 'multi_string',
+    difficulty: 'Super Beginner (Warm-Up)',
+    tempo: 75,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The #1 exercise in guitar history! 4 fingers on 4 frets (1-2-3-4) across every string. Builds finger independence and stretches hands.',
+    tips: 'Curl fingertips onto their tips right behind fret wires. Keep thumb rested in the middle-back of the neck.',
+    tabColumns: [
+      // 6th string
+      { notes: [{ str: 0, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 0, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 0, fret: 4 }], dur: 0.5, label: '4' },
+      // 5th string
+      { notes: [{ str: 1, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 1, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 1, fret: 4 }], dur: 0.5, label: '4' },
+      // 4th string
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 2, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 2, fret: 4 }], dur: 0.5, label: '4' },
+      // 3rd string
+      { notes: [{ str: 3, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 3, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 3, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 3, fret: 4 }], dur: 0.5, label: '4' },
+      // 2nd string
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 4, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 4, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 4, fret: 4 }], dur: 0.5, label: '4' },
+      // 1st string
+      { notes: [{ str: 5, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 5, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 5, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 5, fret: 4 }], dur: 1.5, label: '4' }
+    ]
+  },
+  {
+    id: 'spider_skip_tab',
+    title: 'The 1-3 Spider Alternate (1-3-2-4)',
+    artist: 'Finger Independence Drill',
+    tabCategory: 'exercises',
+    stringCategory: 'multi_string',
+    difficulty: 'Beginner (Coordination)',
+    tempo: 70,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Skipping frets 1-3-2-4 forces fingers to work independently instead of clumping together.',
+    tips: 'Index (1) -> Ring (3) -> Middle (2) -> Pinky (4). Take it slow and clean!',
+    tabColumns: [
+      // 6th string
+      { notes: [{ str: 0, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 0, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 0, fret: 4 }], dur: 0.5, label: '4' },
+      // 5th string
+      { notes: [{ str: 1, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 1, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 1, fret: 4 }], dur: 0.5, label: '4' },
+      // 4th string
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: '1' },
+      { notes: [{ str: 2, fret: 3 }], dur: 0.5, label: '3' },
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: '2' },
+      { notes: [{ str: 2, fret: 4 }], dur: 1.5, label: '4' }
+    ]
+  },
+  {
+    id: 'pinky_power_tab',
+    title: 'Pinky Power Builder (Frets 5 & 8 Stretch)',
+    artist: 'Finger Strength Drill',
+    tabCategory: 'exercises',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner (Strength)',
+    tempo: 80,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Builds power and reach in the pinky finger by stretching between frets 5 (Index) and 8 (Pinky).',
+    tips: 'Keep your index finger anchored on fret 5 while your pinky strikes fret 8 boldly.',
+    tabColumns: [
+      // G string
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 3, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 3, fret: 8 }], dur: 0.5, label: '8' },
+      // B string
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8' },
+      // High E string
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 5, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 5, fret: 8 }], dur: 1.5, label: '8' }
+    ]
+  },
+  {
+    id: 'alt_picking_tab',
+    title: 'Alternate Picking Speed Engine (Down-Up-Down-Up)',
+    artist: 'Picking Mechanics Drill',
+    tabCategory: 'exercises',
+    stringCategory: 'single_string',
+    difficulty: 'Beginner (Picking)',
+    tempo: 90,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Strict downstroke/upstroke alternation to build fast, effortless picking hand stamina without tension.',
+    tips: 'Down (↓) -> Up (↑) -> Down (↓) -> Up (↑). Keep pick motion small and from the wrist.',
+    tabColumns: [
+      { notes: [{ str: 0, fret: 0 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 3 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 5 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 5 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 5 }], dur: 0.25, label: '↓' },
+      { notes: [{ str: 0, fret: 5 }], dur: 0.25, label: '↑' },
+      { notes: [{ str: 0, fret: 0 }], dur: 1.0, label: 'E' }
+    ]
+  },
+  {
+    id: 'palm_mute_tab',
+    title: 'Palm Muting Rock Chug Workout',
+    artist: 'Rhythm Guitar Technique',
+    tabCategory: 'exercises',
+    stringCategory: 'single_string',
+    difficulty: 'Beginner (Heavy Rhythm)',
+    tempo: 100,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Alternating between tight palm-muted chugs and wide-open ringing power notes.',
+    tips: 'Rest picking hand edge on bridge saddle. Mute 4 times, then lift hand for 4 ringing open notes!',
+    tabColumns: [
+      // 4 Muted chugs
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'P.M.' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'P.M.' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'P.M.' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'P.M.' },
+      // 4 Open ringing notes
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'Open' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'Open' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'Open' },
+      { notes: [{ str: 0, fret: 0 }], dur: 0.5, label: 'Open' },
+      // Accent Power chord
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.0, label: 'A5' }
+    ]
+  },
+  {
+    id: 'anchor_chord_tab',
+    title: 'The Anchor Finger Switch (G ↔ Cadd9 ↔ Dsus4)',
+    artist: 'Chord Transition Mastery',
+    tabCategory: 'exercises',
+    stringCategory: 'multi_string',
+    difficulty: 'Beginner (Smooth Chords)',
+    tempo: 80,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Master instantaneous chord switching by anchoring fingers 3 & 4 on the top 2 strings.',
+    tips: 'Glue ring and pinky to 3rd fret on strings 1 & 2. Only move index and middle fingers between chords!',
+    tabColumns: [
+      // G Major (with 3rd & 4th fingers anchored on 3rd fret)
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 2 }, { str: 2, fret: 0 }, { str: 3, fret: 0 }, { str: 4, fret: 3 }, { str: 5, fret: 3 }], dur: 2.0, label: 'G' },
+      // Cadd9 (just move top 2 fingers down 1 string)
+      { notes: [{ str: 1, fret: 3 }, { str: 2, fret: 2 }, { str: 3, fret: 0 }, { str: 4, fret: 3 }, { str: 5, fret: 3 }], dur: 2.0, label: 'Cadd9' },
+      // Dsus4 (move index to 3rd string fret 2)
+      { notes: [{ str: 2, fret: 0 }, { str: 3, fret: 2 }, { str: 4, fret: 3 }, { str: 5, fret: 3 }], dur: 2.0, label: 'Dsus4' },
+      // Back to G
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 2 }, { str: 2, fret: 0 }, { str: 3, fret: 0 }, { str: 4, fret: 3 }, { str: 5, fret: 3 }], dur: 2.0, label: 'G' }
+    ]
+  },
+  {
+    id: 'power_slider_tab',
+    title: 'Movable Power Chord Slider (F5 → G5 → A5 → B5)',
+    artist: 'Power Chord Agility',
+    tabCategory: 'exercises',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner (Power Chords)',
+    tempo: 90,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Slide the 2-finger power shape across the neck smoothly without looking at your hands.',
+    tips: 'Fret 1 (F5) -> Fret 3 (G5) -> Fret 5 (A5) -> Fret 7 (B5) -> then slide back down!',
+    tabColumns: [
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 1.0, label: 'F5' },
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.0, label: 'A5' },
+      { notes: [{ str: 0, fret: 7 }, { str: 1, fret: 9 }], dur: 1.0, label: 'B5' },
+      { notes: [{ str: 0, fret: 5 }, { str: 1, fret: 7 }], dur: 1.0, label: 'A5' },
+      { notes: [{ str: 0, fret: 3 }, { str: 1, fret: 5 }], dur: 1.0, label: 'G5' },
+      { notes: [{ str: 0, fret: 1 }, { str: 1, fret: 3 }], dur: 2.0, label: 'F5' }
+    ]
+  },
+  {
+    id: 'hammer_pull_tab',
+    title: 'Hammer-On & Pull-Off Legato Workout',
+    artist: 'Lead Guitar Technique',
+    tabCategory: 'exercises',
+    stringCategory: 'two_string',
+    difficulty: 'Beginner-Intermediate (Legato)',
+    tempo: 75,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Sound notes with speed and fluid legato by hammering on and pulling off without picking every note.',
+    tips: 'Pick fret 5, slam ring finger on fret 7 (Hammer), then snap ring finger off to sound fret 5 again (Pull).',
+    tabColumns: [
+      // G string 5h7 -> 7p5
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 3, fret: 7 }], dur: 0.5, label: '7 (h)' },
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5 (p)' },
+      { notes: [{ str: 3, fret: 7 }], dur: 0.5, label: '7' },
+      // B string 5h8 -> 8p5
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8 (h)' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5 (p)' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8' },
+      // High E string 5h8 -> 8p5
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 5, fret: 8 }], dur: 0.5, label: '8 (h)' },
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5 (p)' },
+      { notes: [{ str: 5, fret: 8 }], dur: 1.5, label: '8' }
+    ]
+  },
+  {
+    id: 'pentatonic_ladder_tab',
+    title: 'A Minor Pentatonic Box 1 Scale Ladder',
+    artist: 'Lead Solo Scale Drill',
+    tabCategory: 'exercises',
+    stringCategory: 'multi_string',
+    difficulty: 'Beginner (Full Scale)',
+    tempo: 80,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'The foundation of 90% of electric guitar solos! Ascend and descend the 6-string pentatonic box.',
+    tips: 'Use index for fret 5, ring for fret 7, pinky for fret 8. Strict alternate picking.',
+    tabColumns: [
+      // Ascending: Low E to High E
+      { notes: [{ str: 0, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 0, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 1, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 1, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 2, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 2, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 3, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 5, fret: 8 }], dur: 1.0, label: '8' },
+      // Descending
+      { notes: [{ str: 5, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 4, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 3, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 3, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 2, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 2, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 1, fret: 7 }], dur: 0.5, label: '7' },
+      { notes: [{ str: 1, fret: 5 }], dur: 0.5, label: '5' },
+      { notes: [{ str: 0, fret: 8 }], dur: 0.5, label: '8' },
+      { notes: [{ str: 0, fret: 5 }], dur: 1.5, label: 'A Root' }
     ]
   }
 ];

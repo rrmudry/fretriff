@@ -6,6 +6,7 @@ import { CHORDS, CHORD_CATEGORIES } from './data/chords.js';
 import { createChordCard } from './components/chord-diagram.js';
 import { ProgressionPlayer } from './components/progression-player.js';
 import { TabViewer } from './components/tab-viewer.js';
+import { ExerciseView } from './components/exercise-view.js';
 import { TunerUI } from './components/tuner-ui.js';
 import { FretboardView } from './components/fretboard-view.js';
 import { guitarSynth } from './audio/synth.js';
@@ -16,6 +17,7 @@ class App {
     this.searchQuery = '';
     this.progressionPlayer = null;
     this.tabViewer = null;
+    this.exerciseView = null;
     this.tunerUI = null;
     this.fretboardView = null;
 
@@ -163,13 +165,27 @@ class App {
       this.tabViewer = new TabViewer(tabContainer);
     }
 
-    // 3. Guitar Tuner
+    // 3. Daily Exercises & Warm-Up Gym
+    const exerciseContainer = document.getElementById('exercises-container');
+    if (exerciseContainer) {
+      this.exerciseView = new ExerciseView(exerciseContainer, (tabId) => {
+        // Switch to the tabs section in main navigation
+        const tabNavBtn = document.querySelector('.nav-tab-btn[data-target="section-tabs"]');
+        if (tabNavBtn) tabNavBtn.click();
+
+        if (this.tabViewer) {
+          this.tabViewer.loadPresetById(tabId);
+        }
+      });
+    }
+
+    // 4. Guitar Tuner
     const tunerContainer = document.getElementById('tuner-container');
     if (tunerContainer) {
       this.tunerUI = new TunerUI(tunerContainer);
     }
 
-    // 4. Fretboard Lead Visualizer
+    // 5. Fretboard Lead Visualizer
     const fretboardContainer = document.getElementById('fretboard-container');
     if (fretboardContainer) {
       this.fretboardView = new FretboardView(fretboardContainer);
