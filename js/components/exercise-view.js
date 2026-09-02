@@ -5,6 +5,7 @@
 import { EXERCISES, EXERCISE_CATEGORIES } from '../data/exercises.js';
 import { DrumEngine } from '../audio/drums.js';
 import { guitarSynth } from '../audio/synth.js';
+import { PrintGenerator } from './print-generator.js';
 
 export class ExerciseView {
   constructor(containerEl, onSelectExerciseTab = null) {
@@ -12,10 +13,11 @@ export class ExerciseView {
     this.currentCategory = 'all';
     this.onSelectExerciseTab = onSelectExerciseTab;
     this.drumEngine = new DrumEngine(guitarSynth);
-    this.activeMetronomeId = null;
+    this.printGen = new PrintGenerator();
 
     this.initUI();
     this.setupListeners();
+    this.setupPrintModal();
   }
 
   initUI() {
@@ -49,6 +51,31 @@ export class ExerciseView {
           </div>
         </div>
 
+        <!-- Printable Drills & Worksheets Bar -->
+        <div class="printable-banner-bar">
+          <div class="printable-banner-info">
+            <span class="printable-banner-icon">🖨️</span>
+            <div>
+              <h4>Printable Music Stand Sheets & Workout Guides</h4>
+              <p>Print ink-friendly paper sheets for your music stand or guitar binder.</p>
+            </div>
+          </div>
+          <div class="printable-btn-group">
+            <button class="btn btn-sm btn-accent btn-open-print" data-sheet="daily_workout">
+              📄 Print 3-Min Workout
+            </button>
+            <button class="btn btn-sm btn-outline btn-open-print" data-sheet="electric_dozen">
+              🎸 Print Chord Poster
+            </button>
+            <button class="btn btn-sm btn-outline btn-open-print" data-sheet="practice_tracker">
+              📅 Print Weekly Log
+            </button>
+            <button class="btn btn-sm btn-outline btn-open-print" data-sheet="blank_manuscript">
+              📝 Blank TABs
+            </button>
+          </div>
+        </div>
+
         <!-- Category Filters -->
         <div class="filter-toolbar">
           <div class="filter-chips-wrap" id="exercise-filter-chips">
@@ -63,6 +90,11 @@ export class ExerciseView {
         <!-- Exercise Cards Grid -->
         <div class="exercises-grid" id="exercises-grid">
           <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Print Modal Placeholder -->
+        <div id="print-modal-container">
+          ${this.printGen.renderPrintModal()}
         </div>
       </div>
     `;
@@ -142,6 +174,50 @@ export class ExerciseView {
         filterWrap.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         this.renderExerciseCards();
+      }
+    });
+  }
+
+  setupPrintModal() {
+    const modal = this.container.querySelector('#print-modal');
+    const select = this.container.querySelector('#print-sheet-select');
+    const previewContainer = this.container.querySelector('#print-paper-preview');
+    const triggerPrintBtn = this.container.querySelector('#btn-trigger-print');
+    const closeBtn = this.container.querySelector('#btn-close-print-modal');
+
+    const updatePreview = (sheetId) => {
+      select.value = sheetId;
+      previewContainer.innerHTML = this.printGen.generateSheetHtml(sheetId);
+    };
+
+    // Open print modal buttons
+    const openPrintBtns = this.container.querySelectorAll('.btn-open-print');
+    openPrintBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sheetId = btn.dataset.sheet || 'daily_workout';
+        updatePreview(sheetId);
+        modal.showModal();
+      });
+    });
+
+    // Change sheet from dropdown
+    select.addEventListener('change', (e) => {
+      updatePreview(e.target.value);
+    });
+
+    // Trigger Browser Print
+    triggerPrintBtn.addEventListener('click', () => {
+      window.print();
+    });
+
+    // Close Modal
+    closeBtn.addEventListener('click', () => {
+      modal.close();
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.close();
       }
     });
   }
