@@ -226,6 +226,238 @@
 }
 
 /* =========================================================
+   Website Info & QR Cut-Out Slips Styling (4-Up Card Layout)
+   ========================================================= */
+.website-slips-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  position: relative;
+  background: #ffffff;
+  color: #0f172a;
+  min-height: 9.5in;
+  border-radius: 4px;
+}
+
+.cut-line-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-top: 2px dashed #64748b;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.cut-line-vertical {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed #64748b;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.scissor-label {
+  background: white;
+  padding: 3px 8px;
+  font-size: 11px;
+  color: #334155;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border-radius: 4px;
+  border: 1px solid #94a3b8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  white-space: nowrap;
+}
+
+.slip-card {
+  padding: 0.28in 0.24in 0.24in 0.24in;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: #ffffff;
+  border: 1px dashed #e2e8f0;
+  margin: 1px;
+}
+
+.slip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2.5px solid #0f172a;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.slip-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slip-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.slip-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.slip-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #0284c7;
+  display: block;
+  margin-top: 2px;
+}
+
+.slip-badge {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.slip-body {
+  display: grid;
+  grid-template-columns: 1.4in 1fr;
+  gap: 10px;
+  align-items: center;
+  flex: 1;
+  margin: 4px 0;
+}
+
+.slip-qr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #f8fafc;
+  border: 1.5px solid #0f172a;
+  border-radius: 10px;
+  padding: 6px 4px 5px 4px;
+  box-shadow: 2px 2px 0px rgba(15, 23, 42, 0.1);
+}
+
+.qr-image {
+  width: 1.15in;
+  height: 1.15in;
+  image-rendering: pixelated;
+  display: block;
+  border-radius: 4px;
+}
+
+.qr-scan-hint {
+  font-size: 0.58rem;
+  font-weight: 900;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+.qr-url {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.slip-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.slip-features li {
+  font-size: 0.68rem;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  line-height: 1.25;
+}
+
+.feature-icon {
+  font-size: 0.78rem;
+  flex-shrink: 0;
+  margin-top: -1px;
+}
+
+.slip-features strong {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.slip-banner {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 8px;
+  padding: 5px 8px;
+  margin-top: 6px;
+  font-size: 0.65rem;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slip-banner-text {
+  font-weight: 700;
+}
+
+.slip-footer {
+  border-top: 1px solid #cbd5e1;
+  padding-top: 5px;
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.58rem;
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}
+
+.slip-cut-hint {
+  font-family: var(--font-display, sans-serif);
+  font-style: italic;
+  color: #94a3b8;
+}
+
+/* =========================================================
    @media print (Paper Output Mode)
    ========================================================= */
 @media print {

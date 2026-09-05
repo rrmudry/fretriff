@@ -7,6 +7,7 @@ import { CHORDS } from '../data/chords.js';
 export class PrintGenerator {
   constructor() {
     this.sheets = [
+      { id: 'website_slips', title: '✂️ Website Info & QR Cut-Out Slips (4-Up)' },
       { id: 'daily_workout', title: '🏋️ 3-Minute Daily Workout Sheet' },
       { id: 'electric_dozen', title: '⚡ The "Electric Dozen" & Power Chords' },
       { id: 'practice_tracker', title: '📅 Weekly Practice Log & Speed Tracker' },
@@ -27,6 +28,9 @@ export class PrintGenerator {
             </div>
 
             <div class="print-actions-group">
+              <a href="fretriff-handout-slips.pdf" download="fretriff-handout-slips.pdf" target="_blank" class="btn btn-outline" style="margin-right: 0.5rem; text-decoration: none;">
+                📥 Download PDF Slips
+              </a>
               <button id="btn-trigger-print" class="btn btn-primary">
                 🖨️ Print / Save as PDF
               </button>
@@ -47,6 +51,8 @@ export class PrintGenerator {
 
   generateSheetHtml(sheetId) {
     switch (sheetId) {
+      case 'website_slips':
+        return this.getWebsiteSlipsSheet();
       case 'daily_workout':
         return this.getDailyWorkoutSheet();
       case 'electric_dozen':
@@ -56,7 +62,7 @@ export class PrintGenerator {
       case 'blank_manuscript':
         return this.getBlankManuscriptSheet();
       default:
-        return this.getDailyWorkoutSheet();
+        return this.getWebsiteSlipsSheet();
     }
   }
 
@@ -303,6 +309,68 @@ Fingers: 1 4  1 3  1 3  1 3  1 4  1 4 (Index=5, Ring=7, Pinky=8)</div>
             `).join('')}
           </div>
         </div>
+      </div>
+    `;
+  }
+
+  getWebsiteSlipsSheet() {
+    const singleCardHtml = `
+      <div class="slip-card">
+        <div class="slip-header">
+          <div class="slip-brand">
+            <span class="slip-icon">⚡</span>
+            <div>
+              <div class="slip-title">FretRiff</div>
+              <span class="slip-subtitle">Electric Guitar Companion</span>
+            </div>
+          </div>
+          <span class="slip-badge">Free Web App</span>
+        </div>
+
+        <div class="slip-body">
+          <div class="slip-qr-col">
+            <img class="qr-image" src="assets/fretriff-qr.png" alt="Scan QR Code to visit FretRiff">
+            <span class="qr-scan-hint">Scan with Camera</span>
+            <span class="qr-url">rrmudry.github.io/fretriff</span>
+          </div>
+
+          <ul class="slip-features">
+            <li><span class="feature-icon">🎸</span> <div><strong>The Electric Dozen:</strong> Open chords & rock power chords</div></li>
+            <li><span class="feature-icon">🎼</span> <div><strong>Progression Studio:</strong> Interactive chord combinations</div></li>
+            <li><span class="feature-icon">📜</span> <div><strong>Interactive TABs:</strong> Offspring, Imagine Dragons & rock riffs</div></li>
+            <li><span class="feature-icon">🏋️</span> <div><strong>3-Min Workout:</strong> Spider walks, picking & printable logs</div></li>
+            <li><span class="feature-icon">🎯</span> <div><strong>Precision Tuner:</strong> Real-time microphone chromatic pitch</div></li>
+            <li><span class="feature-icon">⚡</span> <div><strong>Pentatonic Soloing:</strong> Fretboard scale visualizer</div></li>
+          </ul>
+        </div>
+
+        <div class="slip-banner">
+          <span class="slip-banner-text">🚀 Zero login • No ads • Works on phones, tablets & laptops</span>
+        </div>
+
+        <div class="slip-footer">
+          <span>https://rrmudry.github.io/fretriff/</span>
+          <span class="slip-cut-hint">✂ Cut slip for your music stand</span>
+        </div>
+      </div>
+    `;
+
+    return `
+      <div class="website-slips-page">
+        <!-- Cutting Guides -->
+        <div class="cut-line-horizontal">
+          <span class="scissor-label">✂ CUT HERE</span>
+          <span class="scissor-label">✂ CUT HERE</span>
+        </div>
+        <div class="cut-line-vertical">
+          <span class="scissor-label">✂ CUT</span>
+          <span class="scissor-label">✂ CUT</span>
+        </div>
+
+        ${singleCardHtml}
+        ${singleCardHtml}
+        ${singleCardHtml}
+        ${singleCardHtml}
       </div>
     `;
   }

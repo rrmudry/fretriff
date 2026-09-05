@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FretRiff - Printable Handout Slips (PDF)</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    @page {
+      size: letter portrait;
+      margin: 0.25in;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.25;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Screen-only Controls */
+    .screen-controls {
+      background: #1e293b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 8.5in;
+    }
+
+    .screen-controls h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-primary {
+      background: #0ea5e9;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #0284c7;
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* 8.5" x 11" Paper Canvas */
+    .paper-page {
+      width: 8in;
+      height: 10.5in;
+      background: white;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Cut Guidelines */
+    .cut-line-horizontal {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 0;
+      border-top: 2px dashed #64748b;
+      z-index: 10;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 20px;
+      pointer-events: none;
+      transform: translateY(-50%);
+    }
+
+    .cut-line-vertical {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      border-left: 2px dashed #64748b;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
+
+    .scissor-label {
+      background: white;
+      padding: 3px 8px;
+      font-size: 11px;
+      color: #334155;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      border: 1px solid #94a3b8;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      white-space: nowrap;
+    }
+
+    /* Individual Slip / Card */
+    .slip-card {
+      padding: 0.32in 0.28in 0.28in 0.28in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background: #ffffff;
+      border: 1px dashed #e2e8f0;
+      margin: 1px;
+    }
+
+    /* Slip Header */
+    .slip-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2.5px solid #0f172a;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .slip-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slip-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .slip-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1;
+    }
+
+    .slip-subtitle {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #0284c7;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .slip-badge {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Main Body of Slip */
+    .slip-body {
+      display: grid;
+      grid-template-columns: 1.45in 1fr;
+      gap: 12px;
+      align-items: center;
+      flex: 1;
+      margin: 6px 0;
+    }
+
+    /* QR Code Column */
+    .slip-qr-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #f8fafc;
+      border: 1.5px solid #0f172a;
+      border-radius: 10px;
+      padding: 8px 6px 6px 6px;
+      box-shadow: 2px 2px 0px rgba(15, 23, 42, 0.1);
+    }
+
+    .qr-image {
+      width: 1.25in;
+      height: 1.25in;
+      image-rendering: pixelated;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .qr-scan-hint {
+      font-size: 0.62rem;
+      font-weight: 900;
+      color: #0284c7;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+      white-space: nowrap;
+    }
+
+    .qr-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.52rem;
+      font-weight: 800;
+      color: #0f172a;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* Features List */
+    .slip-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5.5px;
+    }
+
+    .slip-features li {
+      font-size: 0.72rem;
+      color: #334155;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.25;
+    }
+
+    .feature-icon {
+      font-size: 0.82rem;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    .slip-features strong {
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    /* Highlight Banner in Slip */
+    .slip-banner {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-top: 8px;
+      font-size: 0.68rem;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slip-banner-text {
+      font-weight: 700;
+    }
+
+    /* Slip Footer */
+    .slip-footer {
+      border-top: 1px solid #cbd5e1;
+      padding-top: 6px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.62rem;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+
+    .slip-cut-hint {
+      font-family: 'Outfit', sans-serif;
+      font-style: italic;
+      color: #94a3b8;
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .screen-controls {
+        display: none !important;
+      }
+
+      .paper-page {
+        width: 100% !important;
+        height: 10.5in !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .slip-card {
+        border: 1px dashed #cbd5e1 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .slip-header {
+        border-bottom-color: #000000 !important;
+      }
+
+      .slip-qr-col {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .slip-banner {
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .cut-line-horizontal,
+      .cut-line-vertical {
+        border-color: #94a3b8 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen-only Action Bar -->
+  <div class="screen-controls">
+    <h2>⚡ FretRiff • Printable Handout Slips</h2>
+    <a href="index.html" class="btn btn-outline">← Back to FretRiff</a>
+    <a href="fretriff-handout-slips.pdf" download="fretriff-handout-slips.pdf" class="btn btn-outline">📥 Download PDF</a>
+    <button onclick="window.print()" class="btn btn-primary">🖨️ Print Slips Now</button>
+  </div>
+
+  <!-- Standard 8.5" x 11" 4-Card Printable Page -->
+  <div class="paper-page">
+    
+    <!-- Central Cutting Guides -->
+    <div class="cut-line-horizontal">
+      <span class="scissor-label">✂ CUT HERE</span>
+      <span class="scissor-label">✂ CUT HERE</span>
+    </div>
+    <div class="cut-line-vertical">
+      <span class="scissor-label">✂ CUT</span>
+      <span class="scissor-label">✂ CUT</span>
+    </div>
+
+    <!-- CARD 1 (Top-Left) -->
+    <div class="slip-card">
+      <div class="slip-header">
+        <div class="slip-brand">
+          <span class="slip-icon">⚡</span>
+          <div>
+            <div class="slip-title">FretRiff</div>
+            <span class="slip-subtitle">Electric Guitar Companion</span>
+          </div>
+        </div>
+        <span class="slip-badge">Free Web App</span>
+      </div>
+
+      <div class="slip-body">
+        <div class="slip-qr-col">
+          <img class="qr-image" src="assets/fretriff-qr.png" alt="Scan QR Code to visit FretRiff">
+          <span class="qr-scan-hint">Scan with Camera</span>
+          <span class="qr-url">rrmudry.github.io/fretriff</span>
+        </div>
+
+        <ul class="slip-features">
+          <li><span class="feature-icon">🎸</span> <div><strong>The Electric Dozen:</strong> Open chords & rock power chords</div></li>
+          <li><span class="feature-icon">🎼</span> <div><strong>Progression Studio:</strong> Interactive chord combinations</div></li>
+          <li><span class="feature-icon">📜</span> <div><strong>Interactive TABs:</strong> Offspring, Imagine Dragons & rock riffs</div></li>
+          <li><span class="feature-icon">🏋️</span> <div><strong>3-Min Workout:</strong> Spider walks, picking & printable logs</div></li>
+          <li><span class="feature-icon">🎯</span> <div><strong>Precision Tuner:</strong> Real-time microphone chromatic pitch</div></li>
+          <li><span class="feature-icon">⚡</span> <div><strong>Pentatonic Soloing:</strong> Fretboard scale visualizer</div></li>
+        </ul>
+      </div>
+
+      <div class="slip-banner">
+        <span class="slip-banner-text">🚀 Zero login • No ads • Works on phones, tablets & laptops</span>
+      </div>
+
+      <div class="slip-footer">
+        <span>https://rrmudry.github.io/fretriff/</span>
+        <span class="slip-cut-hint">✂ Cut slip for your music stand</span>
+      </div>
+    </div>
+
+    <!-- CARD 2 (Top-Right) -->
+    <div class="slip-card">
+      <div class="slip-header">
+        <div class="slip-brand">
+          <span class="slip-icon">⚡</span>
+          <div>
+            <div class="slip-title">FretRiff</div>
+            <span class="slip-subtitle">Electric Guitar Companion</span>
+          </div>
+        </div>
+        <span class="slip-badge">Free Web App</span>
+      </div>
+
+      <div class="slip-body">
+        <div class="slip-qr-col">
+          <img class="qr-image" src="assets/fretriff-qr.png" alt="Scan QR Code to visit FretRiff">
+          <span class="qr-scan-hint">Scan with Camera</span>
+          <span class="qr-url">rrmudry.github.io/fretriff</span>
+        </div>
+
+        <ul class="slip-features">
+          <li><span class="feature-icon">🎸</span> <div><strong>The Electric Dozen:</strong> Open chords & rock power chords</div></li>
+          <li><span class="feature-icon">🎼</span> <div><strong>Progression Studio:</strong> Interactive chord combinations</div></li>
+          <li><span class="feature-icon">📜</span> <div><strong>Interactive TABs:</strong> Offspring, Imagine Dragons & rock riffs</div></li>
+          <li><span class="feature-icon">🏋️</span> <div><strong>3-Min Workout:</strong> Spider walks, picking & printable logs</div></li>
+          <li><span class="feature-icon">🎯</span> <div><strong>Precision Tuner:</strong> Real-time microphone chromatic pitch</div></li>
+          <li><span class="feature-icon">⚡</span> <div><strong>Pentatonic Soloing:</strong> Fretboard scale visualizer</div></li>
+        </ul>
+      </div>
+
+      <div class="slip-banner">
+        <span class="slip-banner-text">🚀 Zero login • No ads • Works on phones, tablets & laptops</span>
+      </div>
+
+      <div class="slip-footer">
+        <span>https://rrmudry.github.io/fretriff/</span>
+        <span class="slip-cut-hint">✂ Cut slip for your music stand</span>
+      </div>
+    </div>
+
+    <!-- CARD 3 (Bottom-Left) -->
+    <div class="slip-card">
+      <div class="slip-header">
+        <div class="slip-brand">
+          <span class="slip-icon">⚡</span>
+          <div>
+            <div class="slip-title">FretRiff</div>
+            <span class="slip-subtitle">Electric Guitar Companion</span>
+          </div>
+        </div>
+        <span class="slip-badge">Free Web App</span>
+      </div>
+
+      <div class="slip-body">
+        <div class="slip-qr-col">
+          <img class="qr-image" src="assets/fretriff-qr.png" alt="Scan QR Code to visit FretRiff">
+          <span class="qr-scan-hint">Scan with Camera</span>
+          <span class="qr-url">rrmudry.github.io/fretriff</span>
+        </div>
+
+        <ul class="slip-features">
+          <li><span class="feature-icon">🎸</span> <div><strong>The Electric Dozen:</strong> Open chords & rock power chords</div></li>
+          <li><span class="feature-icon">🎼</span> <div><strong>Progression Studio:</strong> Interactive chord combinations</div></li>
+          <li><span class="feature-icon">📜</span> <div><strong>Interactive TABs:</strong> Offspring, Imagine Dragons & rock riffs</div></li>
+          <li><span class="feature-icon">🏋️</span> <div><strong>3-Min Workout:</strong> Spider walks, picking & printable logs</div></li>
+          <li><span class="feature-icon">🎯</span> <div><strong>Precision Tuner:</strong> Real-time microphone chromatic pitch</div></li>
+          <li><span class="feature-icon">⚡</span> <div><strong>Pentatonic Soloing:</strong> Fretboard scale visualizer</div></li>
+        </ul>
+      </div>
+
+      <div class="slip-banner">
+        <span class="slip-banner-text">🚀 Zero login • No ads • Works on phones, tablets & laptops</span>
+      </div>
+
+      <div class="slip-footer">
+        <span>https://rrmudry.github.io/fretriff/</span>
+        <span class="slip-cut-hint">✂ Cut slip for your music stand</span>
+      </div>
+    </div>
+
+    <!-- CARD 4 (Bottom-Right) -->
+    <div class="slip-card">
+      <div class="slip-header">
+        <div class="slip-brand">
+          <span class="slip-icon">⚡</span>
+          <div>
+            <div class="slip-title">FretRiff</div>
+            <span class="slip-subtitle">Electric Guitar Companion</span>
+          </div>
+        </div>
+        <span class="slip-badge">Free Web App</span>
+      </div>
+
+      <div class="slip-body">
+        <div class="slip-qr-col">
+          <img class="qr-image" src="assets/fretriff-qr.png" alt="Scan QR Code to visit FretRiff">
+          <span class="qr-scan-hint">Scan with Camera</span>
+          <span class="qr-url">rrmudry.github.io/fretriff</span>
+        </div>
+
+        <ul class="slip-features">
+          <li><span class="feature-icon">🎸</span> <div><strong>The Electric Dozen:</strong> Open chords & rock power chords</div></li>
+          <li><span class="feature-icon">🎼</span> <div><strong>Progression Studio:</strong> Interactive chord combinations</div></li>
+          <li><span class="feature-icon">📜</span> <div><strong>Interactive TABs:</strong> Offspring, Imagine Dragons & rock riffs</div></li>
+          <li><span class="feature-icon">🏋️</span> <div><strong>3-Min Workout:</strong> Spider walks, picking & printable logs</div></li>
+          <li><span class="feature-icon">🎯</span> <div><strong>Precision Tuner:</strong> Real-time microphone chromatic pitch</div></li>
+          <li><span class="feature-icon">⚡</span> <div><strong>Pentatonic Soloing:</strong> Fretboard scale visualizer</div></li>
+        </ul>
+      </div>
+
+      <div class="slip-banner">
+        <span class="slip-banner-text">🚀 Zero login • No ads • Works on phones, tablets & laptops</span>
+      </div>
+
+      <div class="slip-footer">
+        <span>https://rrmudry.github.io/fretriff/</span>
+        <span class="slip-cut-hint">✂ Cut slip for your music stand</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

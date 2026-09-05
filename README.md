@@ -18,14 +18,14 @@ Designed to run natively in any modern browser with zero server dependencies, ho
 
 ### 2. 🎼 Chord Progression Studio ("Sounds Good Together")
 - **Curated Hit Progressions**:
-  - *The 4-Chord Pop Hitmaker* ($I - V - vi - IV$ e.g., `G - D - Em - C`)
-  - *Classic Rock 3-Chord Anthem* ($I - IV - V$ e.g., `A - D - E`)
-  - *Punk & Alt-Rock Power Anthem* ($I - \flat VII - IV$ e.g., `E5 - D5 - A5`)
-  - *Moody & Cinematic* ($vi - IV - I - V$ e.g., `Em - C - G - D`)
-  - *12-Bar Blues Boogie Shuffle* ($E7 \rightarrow A7 \rightarrow B7$)
-  - *50s Doo-Wop & Ballad* ($I - vi - IV - V$ e.g., `C - Am - F - G`)
-  - *Andalusian Rock Cadence* ($i - \flat VII - \flat VI - V$ e.g., `Am - G - F - E`)
-- **Interactive Backing Track**: Strumming timing guides (Down/Up arrows), real-time Web Audio rock drums (Kick, Snare, Hi-hat), metronome, and tempo slider ($40-180\text{ BPM}$).
+  - *The 4-Chord Pop Hitmaker* (I - V - vi - IV e.g., `G - D - Em - C`)
+  - *Classic Rock 3-Chord Anthem* (I - IV - V e.g., `A - D - E`)
+  - *Punk & Alt-Rock Power Anthem* (I - bVII - IV e.g., `E5 - D5 - A5`)
+  - *Moody & Cinematic* (vi - IV - I - V e.g., `Em - C - G - D`)
+  - *12-Bar Blues Boogie Shuffle* (`E7 → A7 → B7`)
+  - *50s Doo-Wop & Ballad* (I - vi - IV - V e.g., `C - Am - F - G`)
+  - *Andalusian Rock Cadence* (i - bVII - bVI - V e.g., `Am - G - F - E`)
+- **Interactive Backing Track**: Strumming timing guides (Down/Up arrows), real-time Web Audio rock drums (Kick, Snare, Hi-hat), metronome, and tempo slider (40-180 BPM).
 - **Custom Progression Builder**: Click any chord in the palette to build and audition your own song sequences!
 - **Music Theory Made Simple**: Explains *why* chords resolve into each other using the Roman Numeral / Nashville system (Tonic Home, Dominant Tension, Subdominant Lift).
 
@@ -38,24 +38,30 @@ Designed to run natively in any modern browser with zero server dependencies, ho
   - *12-Bar Blues Boogie Shuffle* (Chuck Berry Style)
   - *Boulevard of Broken Dreams* (Green Day)
 - **Interactive Playhead**: Animated cursor follows notes with synchronized Web Audio guitar playback.
-- **Practice Controls**: Slow down tricky passages ($0.5\times, 0.75\times, 1.0\times, 1.25\times$), loop mode, and custom tab editor.
+- **Practice Controls**: Slow down tricky passages (0.5x, 0.75x, 1.0x, 1.25x), loop mode, and custom tab editor.
 
 ### 4. 🎯 Precision Guitar Tuner
 - **Live Microphone Pitch Detection**: Uses optimized autocorrelation / YIN algorithm to detect pitch in real-time.
-- **Visual Needle Gauge**: Displays cents offset ($\pm 50 \text{ cents}$), detected frequency in Hz, target frequency, and glowing green **"In Tune"** lock celebration.
-- **Presets**: Standard ($E A D G B E$), Drop D, Half-Step Down, DADGAD, Open D.
+- **Visual Needle Gauge**: Displays cents offset (±50 cents), detected frequency in Hz, target frequency, and glowing green **"In Tune"** lock celebration.
+- **Presets**: Standard (E A D G B E), Drop D, Half-Step Down, DADGAD, Open D.
 - **Reference Pitch Generator**: Interactive guitar headstock pegs to play reference pitches for ear training.
 
 ### 5. ⚡ Fretboard Explorer & Pentatonic Lead Studio
 - **Full 22-Fret Neck**: Interactive neck showing all notes and inlays.
 - **Minor Pentatonic Box 1 Overlay**: The "magic soloing scale" for electric guitar. Click any fret to play the note.
 
+### 6. 📄 Printable Slips (PDF) & Worksheets
+- **Cut-Up Handout Slips (4-Up Card Sheet)**: Pre-compiled letter-sized PDF (`fretriff-handout-slips.pdf`) and interactive web flyer (`slips.html`) with scissor cutting guidelines, site overview, feature list, and high-resolution QR code link for easy classroom or studio distribution.
+- **Printable Music Stand Workout Sheets**: Ink-friendly 3-Minute Daily Finger Independence workout sheets, weekly practice logs, and blank tablature manuscripts.
+
 ---
 
 ## 🚀 Live Hosting
 
 This application is deployed and publicly accessible on GitHub Pages:
-**[https://rrmudry.github.io/fretriff/](https://rrmudry.github.io/fretriff/)**
+- **Web App**: **[https://rrmudry.github.io/fretriff/](https://rrmudry.github.io/fretriff/)**
+- **Printable Slips PDF**: **[https://rrmudry.github.io/fretriff/fretriff-handout-slips.pdf](https://rrmudry.github.io/fretriff/fretriff-handout-slips.pdf)**
+- **Flyer & Slips Page**: **[https://rrmudry.github.io/fretriff/slips.html](https://rrmudry.github.io/fretriff/slips.html)**
 
 ---
 
