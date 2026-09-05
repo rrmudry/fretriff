@@ -1,5 +1,5 @@
 /**
- * RiffLab - Electric Guitar Companion Main Application Coordinator
+ * FretRiff - Electric Guitar Companion Main Application Coordinator
  */
 
 import { CHORDS, CHORD_CATEGORIES } from './data/chords.js';

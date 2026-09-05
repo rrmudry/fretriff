@@ -1,8 +1,10 @@
-# ⚡ RiffLab - Electric Guitar Companion
+# ⚡ FretRiff - Electric Guitar Companion
 
 An interactive, responsive web application built for beginner electric guitar students to master **chord progressions**, essential open chords (the **"Electric Dozen"**), **rock power chords**, **interactive tablature riffs**, and tune up with a **real-time microphone guitar tuner**.
 
-Designed to run natively in any modern browser with zero server dependencies, and ready for instant 1-click hosting on **GitHub Pages**.
+Live Web App: **[https://rrmudry.github.io/fretriff/](https://rrmudry.github.io/fretriff/)**
+
+Designed to run natively in any modern browser with zero server dependencies, hosted on **GitHub Pages**.
 
 ---
 
@@ -50,24 +52,10 @@ Designed to run natively in any modern browser with zero server dependencies, an
 
 ---
 
-## 🚀 How to Host on GitHub Pages
+## 🚀 Live Hosting
 
-1. Create a new repository on [GitHub](https://github.com/new) (e.g. `guitar-student` or `riff-lab`).
-2. Push all the files from this directory to your repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit of RiffLab Electric Guitar Companion"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-   git push -u origin main
-   ```
-3. In your GitHub repository:
-   - Click **Settings** (top tab).
-   - In the left sidebar, click **Pages**.
-   - Under **Build and deployment** > **Source**, choose **Deploy from a branch**.
-   - Under **Branch**, select `main` and root `/`, then click **Save**.
-4. In about 30 seconds, GitHub will give you a public URL (e.g., `https://<your-username>.github.io/<your-repo-name>/`) where your son can open the app on a phone, tablet, or laptop right next to his guitar amplifier!
+This application is deployed and publicly accessible on GitHub Pages:
+**[https://rrmudry.github.io/fretriff/](https://rrmudry.github.io/fretriff/)**
 
 ---
 

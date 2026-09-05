@@ -65,7 +65,7 @@ export class PrintGenerator {
       <div class="printable-sheet">
         <div class="sheet-header">
           <div class="sheet-title-group">
-            <h2>⚡ RiffLab Daily Guitar Workout</h2>
+            <h2>⚡ FretRiff Daily Guitar Workout</h2>
             <p>3-Minute Daily Finger Independence & Technique Routine</p>
           </div>
           <div class="sheet-meta-box">
