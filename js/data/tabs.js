@@ -637,33 +637,94 @@ export const TAB_PRESETS = [
   },
   {
     id: 'come_out_and_play',
-    title: "Come Out and Play (Keep 'Em Separated)",
+    title: "Come Out and Play (Keep 'Em Separated - Authentic Riff)",
     artist: 'The Offspring',
     tabCategory: 'riffs',
-    stringCategory: 'single_string',
-    difficulty: 'Beginner (Iconic Hook)',
+    stringCategory: 'two_string',
+    difficulty: 'Intermediate (Iconic B Phrygian Box)',
     tempo: 158,
     timeSignature: '4/4',
     tuning: 'Standard (E A D G B E)',
-    description: 'The legendary Middle-Eastern surf-punk riff! Played on the 2nd (B) string with bouncy groove.',
-    tips: 'B string frets: 0 -> 1 -> 4 -> 3 -> 1 -> 0! Add a little mute after fret 4 for that punchy Offspring flavor.',
+    description: 'The authentic Middle-Eastern surf-punk riff in B Phrygian Dominant! Played across strings 5 (A) and 4 (D), finishing with punchy B5 power chords.',
+    tips: 'Use index on D-fret 1, middle on frets 2, ring on A-fret 3, and pinky on D-fret 4. Keep picking bouncy and punch the B5 stabs!',
     tabColumns: [
-      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0' },
-      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
-      { notes: [{ str: 4, fret: 4 }], dur: 1.0, label: '4' },
-      { notes: [{ str: 4, fret: 3 }], dur: 0.5, label: '3' },
-      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
-      { notes: [{ str: 4, fret: 0 }], dur: 1.0, label: '0' },
-      // Second half
-      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0' },
-      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
-      { notes: [{ str: 4, fret: 4 }], dur: 1.0, label: '4' },
-      { notes: [{ str: 4, fret: 3 }], dur: 0.5, label: '3' },
-      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1' },
-      { notes: [{ str: 4, fret: 0 }], dur: 1.5, label: '0' },
-      // Vocal chant punch: B5 power chord
-      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 1.0, label: 'B5' },
-      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 1.0, label: 'B5' }
+      // Measure 1: B -> C -> D# -> E -> F#
+      { notes: [{ str: 1, fret: 2 }], dur: 0.5, label: 'B' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: 'D#' },
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 2, fret: 4 }], dur: 0.75, label: 'F#' },
+      // Measure 2: E -> D# -> C -> B
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: 'D#' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 1, fret: 2 }], dur: 1.0, label: 'B' },
+      { notes: [], dur: 0.25, label: '-' },
+      // Measure 3: Repetition 2
+      { notes: [{ str: 1, fret: 2 }], dur: 0.5, label: 'B' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: 'D#' },
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 2, fret: 4 }], dur: 0.75, label: 'F#' },
+      // Measure 4: Return with tail: E -> D# -> C -> B -> C -> B
+      { notes: [{ str: 2, fret: 2 }], dur: 0.5, label: 'E' },
+      { notes: [{ str: 2, fret: 1 }], dur: 0.5, label: 'D#' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 1, fret: 2 }], dur: 0.5, label: 'B' },
+      { notes: [{ str: 1, fret: 3 }], dur: 0.5, label: 'C' },
+      { notes: [{ str: 1, fret: 2 }], dur: 1.0, label: 'B' },
+      // Pause for chant: "You gotta keep 'em separated!"
+      { notes: [], dur: 1.5, label: 'Chant' },
+      // Staccato B5 power chord punch
+      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 0.75, label: 'B5' },
+      { notes: [], dur: 0.25, label: '-' },
+      { notes: [{ str: 1, fret: 2 }, { str: 2, fret: 4 }], dur: 0.75, label: 'B5' }
+    ]
+  },
+  {
+    id: 'come_out_and_play_single_string',
+    title: "Come Out and Play (1-String Beginner Slide)",
+    artist: 'The Offspring',
+    tabCategory: 'riffs',
+    stringCategory: 'single_string',
+    difficulty: 'Super Beginner (1-String Slide)',
+    tempo: 140,
+    timeSignature: '4/4',
+    tuning: 'Standard (E A D G B E)',
+    description: 'Learn the famous Middle-Eastern hook sliding up and down the 2nd (B) string with just one finger! Accurately hits all the Phrygian dominant notes.',
+    tips: 'Play entirely on the B string: 0 -> 1 -> 4 -> 5 -> 7 -> 5 -> 4 -> 1 -> 0! Slide smoothly up to fret 7 and back down.',
+    tabColumns: [
+      // Measure 1: 0 -> 1 -> 4 -> 5 -> 7
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0 (B)' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1 (C)' },
+      { notes: [{ str: 4, fret: 4 }], dur: 0.5, label: '4 (D#)' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5 (E)' },
+      { notes: [{ str: 4, fret: 7 }], dur: 0.75, label: '7 (F#)' },
+      // Measure 2: 5 -> 4 -> 1 -> 0
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5 (E)' },
+      { notes: [{ str: 4, fret: 4 }], dur: 0.5, label: '4 (D#)' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1 (C)' },
+      { notes: [{ str: 4, fret: 0 }], dur: 1.0, label: '0 (B)' },
+      { notes: [], dur: 0.25, label: '-' },
+      // Measure 3: Second repetition
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0 (B)' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1 (C)' },
+      { notes: [{ str: 4, fret: 4 }], dur: 0.5, label: '4 (D#)' },
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5 (E)' },
+      { notes: [{ str: 4, fret: 7 }], dur: 0.75, label: '7 (F#)' },
+      // Measure 4: Return with tail
+      { notes: [{ str: 4, fret: 5 }], dur: 0.5, label: '5 (E)' },
+      { notes: [{ str: 4, fret: 4 }], dur: 0.5, label: '4 (D#)' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1 (C)' },
+      { notes: [{ str: 4, fret: 0 }], dur: 0.5, label: '0 (B)' },
+      { notes: [{ str: 4, fret: 1 }], dur: 0.5, label: '1 (C)' },
+      { notes: [{ str: 4, fret: 0 }], dur: 1.0, label: '0 (B)' },
+      // Rest for the chant: "You gotta keep 'em separated!"
+      { notes: [], dur: 1.5, label: 'Chant' },
+      // Open B stabs
+      { notes: [{ str: 4, fret: 0 }], dur: 0.75, label: '0 (B)' },
+      { notes: [], dur: 0.25, label: '-' },
+      { notes: [{ str: 4, fret: 0 }], dur: 0.75, label: '0 (B)' }
     ]
   },
   {
